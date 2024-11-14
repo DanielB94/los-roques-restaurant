@@ -1,0 +1,66 @@
+.rewardsContainer {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 89vh;
+}
+.displayInfo {
+    text-align: center;
+    padding: 10px;
+}
+.displayInfo h1 {
+    color: black;
+    font-size: 5rem;
+}
+.displayInfo h2 {
+    color: #75160F;
+    font-size: 3rem;
+}
+.bar {
+    display: flex;
+    align-items: center;
+}
+.progressBar {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 400px;
+    height: 40px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.progressBar .progressBarFill {
+    height: 38px;
+    border-radius: 9px;
+    position: absolute;
+    display: flex;
+}
+.rewardsContainer p {
+    padding: 0px 5px 0px 5px;
+    font-size: 1.5rem;
+}
+.rewardsContainer button {
+    height: 70px;
+    font-size: 1.5rem;
+    background-color: #75160F;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+.rewardsInfo li {
+    font-size: 1.2rem;
+}
+@media (max-width: 924px) {
+    .progressBar {
+        width: 300px;
+    }
+    .rewardsInfo li {
+        font-size: 0.8rem;
+    }
+    .container {
+        width: 428px;
+    }
+}

@@ -1,0 +1,44 @@
+.registerContainer {
+    display: flex;
+    padding-top: 80px;
+    height: 90vh;
+    justify-content: center;
+    align-items: flex-start;
+}
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+input {
+    width: 300px;
+    height: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.274);
+    border-radius: 6px;
+    padding-left: 10px;
+    margin: 5px 0px 5px 0px;
+}
+fieldset {
+    width: 50px;
+}
+fieldset div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3px;
+}
+fieldset div input {
+    width: 50px;
+}
+#text {
+    cursor: default;
+    padding: 0px 5px 5px 5px
+}
+@media (max-width: 757px) {
+    .formContainer {
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,11 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    background: #75160F;
+    color: white;
+    text-align: center;
+}
+p {
+    cursor: pointer;
+}

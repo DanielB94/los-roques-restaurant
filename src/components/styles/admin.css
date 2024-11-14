@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: karla;
+}
+.adminContainer {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 89vh;
+}
+.adminOrdersContainer {
+    display: flex;
+}
+.adminOrderCard {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 15px;
+    margin: 5px;
+    height: fit-content;
+    width: fit-content;
+}
+.cartContainer {
+    display: flex;
+    justify-content: start;
+}
+.modContainer {
+    display: flex;
+    flex-direction: column;
+}
+.name {
+    margin: 5px;
+}
+.menuItems {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+}
+.available {
+    background: none;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+}
+.available img {
+    height: 20px;
+}

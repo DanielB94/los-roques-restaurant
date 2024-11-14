@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: karla;
+}
+.orderContainer {
+    min-height: 89vh;
+}
+.orderBanner {
+    height: 60vh;
+    background: url('/src/assets/Screenshot from 2024-03-06 07-47-39.png');
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.orderBanner h1{
+    font-family: "Madimi One";
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    text-shadow: 1px 1px 2px black;
+}
+.productsNavbar {
+    display: grid;
+    padding-left: 300px;
+    padding-right: 300px;
+    grid-auto-flow: column;
+    margin: 10px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+.orderCta {
+    border-radius: 16px;
+    font-size: 1rem;
+    padding: 3px 3px 3px 3px;
+    background: #EDEFEE;
+    color: #495E57;
+    border: none;
+    margin: 3px 6px 3px 6px;
+    cursor: pointer;
+}
+@media (max-width: 1150px) {
+    .productsNavbar {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .orderCta {
+        width: 150px;
+    }
+}

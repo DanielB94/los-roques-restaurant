@@ -1,0 +1,42 @@
+.dropUp {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0.5px 0.5px black;
+}
+.formHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+}
+.modsLabel {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+}
+.modsLabel:hover {
+    background-color: #661009;
+    transition: 0.3s;
+}
+.checkboxs {
+    height: 20px;
+    width: 40px;
+    cursor: pointer;
+}
+.x {
+    background: none;
+    border: 0;
+    border-radius: 10px;
+    color: black;
+    align-self: flex-end;
+    cursor: pointer;
+}
+@media (max-width: 767px) {
+    .dropUp {
+        transform: translateY(-74%);
+    }
+}

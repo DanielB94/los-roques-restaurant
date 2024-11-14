@@ -1,0 +1,74 @@
+.logInContainer {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    min-height: 89vh;
+}
+.bannerLog {
+    color: white;
+    background: url('/src/assets/Screenshot from 2024-03-06 07-47-39.png');
+    background-size: contain;
+    width: 70vw;
+    height: 70vh;
+    margin-top: 30px;
+    margin-right: 120px;
+}
+.btnsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    border-right: 3px solid rgba(0, 0, 0, 0.274);
+    padding: 30px;
+}
+h3 {
+    margin: 10px;
+    text-align: center;
+}
+.btns {
+    margin: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 10px;
+    width: 250px;
+    height: 100px;
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid rgba(128, 128, 128, 0.432);
+}
+.btns img {
+    height: 130px;
+}
+.google {
+    
+}
+.fb {
+    
+}
+@media (max-width: 767px) {
+    .logInContainer {
+        display: flex;
+        justify-content: center;
+    }
+    .listContainer {
+        margin-bottom: 30px;
+    }
+    .btnsContainer {
+        border-right: none;
+        padding-right: 0px;
+        padding: 0;
+    }
+    .btns {
+        width: 170px;
+        height: 60px;
+    }
+    .btns img {
+        height: 90px;
+    }
+    .bannerLog {
+        display: none;
+    }
+}

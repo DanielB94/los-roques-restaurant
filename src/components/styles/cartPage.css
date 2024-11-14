@@ -1,0 +1,31 @@
+.cartContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px;
+    min-height: 87vh;
+}
+#h2 {
+    margin-bottom: 10px;
+}
+ul{
+    margin: 10px;
+}
+.total {
+    text-align: end;
+}
+.cardPageContainer {
+    width: 324px;
+}
+.reward {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.reward input {
+    width: 20px;
+    margin-left: 3px;
+}
+#reward {
+    color: green;
+}

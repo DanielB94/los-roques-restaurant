@@ -1,0 +1,107 @@
+.navBar {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: #F1F1F1;
+}
+
+.logo {
+    height: 7vh;
+    cursor: pointer;
+}
+
+.navBar ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20 0px;
+    padding: 0 25px;
+}
+
+.navBar ul li {
+    font-family: Karla;
+    font-size: 2rem;
+    list-style: none;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.navBar ul li a {
+    text-decoration: none;
+    color: black;
+}
+.navBar ul li a:hover {
+    border-bottom: 1px solid #730D1F;
+}
+.navBar ul li button {
+    border: 0;
+    background:none;
+    font-size: 1.2rem;
+
+    cursor: pointer;
+}
+.hamburguer {
+    display: none;
+}
+.shoppingCart {
+    position: relative;
+}
+.counter {
+    top: 11px;
+    width: 20px;
+    background: red;
+    color: white;
+    text-align: center;
+    position: absolute;
+}
+
+@media (max-width: 767px) {
+
+    .navBar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .navBar ul {
+        display: inline;
+        position: absolute;
+        background-color: #edefee;
+        height: 100vh;
+        width: 100vw;
+        padding: 20px;
+        width: 30vw;
+        height: auto;
+        border-radius: 16px;
+    }
+    .navBar ul li {
+        padding: 5px;
+        font-size: 1.2rem;
+    }
+    .hamburguer{
+        position: fixed;
+        display: flex;
+        order: -1;
+        cursor: pointer;
+        margin-left: 10px;
+        z-index: 10;
+    }
+    .dropMenuVisible {
+        display: flex;
+        visibility: visible;
+        height: auto;
+        text-align: start;
+        justify-content: center;
+    }
+    .dropMenuVisible ul {
+        margin: 9%;
+        margin-right: 20%;
+        text-align: center;
+        background-color: #F1F1F1;
+    }
+    .dropMenuInvisible{
+        visibility: hidden;
+    }
+}

@@ -1,0 +1,29 @@
+.phoneContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 30%;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.479);
+    height: 79vh;
+    width: 100vw;
+}
+.phoneModal {
+    display: flex;;
+    flex-direction: column;
+    background-color: #F1F1F1;
+    border-radius: 3%;
+    padding: 20px;
+    height: 20vh;
+}
+.phoneModal form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.phoneModal form input {
+    width: 30vw;
+}
+.phoneModal form button {
+    background-color: #75160F;
+}

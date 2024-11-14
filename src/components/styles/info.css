@@ -1,0 +1,40 @@
+.infoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-left: 15%;
+    margin-right: 15%;
+    
+}
+.info {
+    padding: 35px;
+    text-align: center;
+}
+.info img {
+    width: 25%;
+}
+.learn {
+    width: 10vw;
+    height: 3vh;
+    background: none;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.learn:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 1150px) {
+    .infoContainer {
+        display: flex;
+        align-items: flex-end;
+    }
+}
+@media (max-width: 776px) {
+    .learn {
+        width: 20vw;
+    }
+    .info img {
+        width: 40%;
+    }
+}
