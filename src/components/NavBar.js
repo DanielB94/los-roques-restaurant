@@ -67,7 +67,7 @@ const NavBar = (props) => {
 
     /// ORDER BTN HANDLER ///
     const orderBtn = () => {
-        axios.get('http://localhost:3200/api/menu-items')
+        axios.get('https://los-roques-restaurant-backend-4.onrender.com/api/menu-items')
         .then((result) => {
             setCategory(result.data);
         })
