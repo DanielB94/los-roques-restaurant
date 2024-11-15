@@ -14,7 +14,7 @@ const OrderPage = (props) => {
 
 /// SET IN THE CATEGORY STATE THE CATEGORY DESIRE ///
   const categoryHandler = (name) => {
-    axios.post('http://localhost:3200/api/menu-item-category', {category: name, available: true})
+    axios.post('https://los-roques-restaurant-backend-4.onrender.com/menu-item-category', {category: name, available: true})
     .then((result) => setCategory(result.data))
     .catch(err => {
       setError(err);
