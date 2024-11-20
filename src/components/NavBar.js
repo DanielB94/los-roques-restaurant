@@ -67,13 +67,13 @@ const NavBar = (props) => {
 
     /// ORDER BTN HANDLER ///
     const orderBtn = () => {
-        axios.get('https://los-roques-restaurant-backend-4.onrender.com/api/menu-items')
+        axios.get('https://salty-sierra-99669-c9d7dcf22123.herokuapp.com/api/menu-items')
         .then((result) => {
             setCategory(result.data);
         })
         .then(navigate('/orderPage'))
         .catch(err =>  {
-          setError(err.response.data);
+          setError(err);
           navigate('/ErrorPage');
       });
     }
