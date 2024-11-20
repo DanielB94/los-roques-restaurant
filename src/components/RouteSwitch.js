@@ -29,7 +29,6 @@ const RouteSwitch = (props) => {
           <Route path='unauthorized' element={<Unauthorized />} />
           <Route path='failed' element={<Failed />} />
           <Route path='order/success' element={<Succeess />} />
-          <Route path='/' element={<HomePage />} />
           <Route path='orderPage' element={<OrderPage handlerAddButton={handlerAddButton} cartItems={cartItems} fillUp={fillUp} />} />
           <Route path= 'logIn' element={<LogIn />} />
           <Route path='register' element={<Register />} />
@@ -39,6 +38,7 @@ const RouteSwitch = (props) => {
           <Route path='eljalabolas' element={<Admin />} />
           <Route path='serverError' element={<ServerError />} />
           <Route path='order-details/:id' element={<OrderDetail />} />
+          <Route path='/' element={<HomePage />} />
         </Routes>
       </div>
     </div>
