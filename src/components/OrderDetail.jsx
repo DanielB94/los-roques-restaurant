@@ -1,8 +1,10 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './styles/orderDetail.css';
+import { ApiUrlContext } from '../context/ApiUrlContext';
 
 const OrderDetail = () => {
+    const apiUrl  = useContext(ApiUrlContext);
     const [orderDetail, setOrderDetail] = useState(null);
 
     const locationUrl = window.location.href;
@@ -11,7 +13,7 @@ const OrderDetail = () => {
     useEffect(() => {
 
         const getOrderDetail = (() => 
-            axios.get(`http://localhost:3200/api/order-details/${idUrl}`, {withCredentials: true})
+            axios.get(`${apiUrl}/api/order-details/${idUrl}`, {withCredentials: true})
             .then((result) => { setOrderDetail(result)})
             .catch(err => console.log(err))
         )();

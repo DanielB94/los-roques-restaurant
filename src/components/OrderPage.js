@@ -5,16 +5,18 @@ import axios from 'axios';
 import { MenuContext } from '../context/MenuContext';
 import { useNavigate } from 'react-router-dom';
 import { ErrorContext } from '../context/ErrorContext';
+import { ApiUrlContext } from '../context/ApiUrlContext';
 
 const OrderPage = (props) => {
   const  { handlerAddButton, cartItems, Item } = props;
+  const apiUrl  = useContext(ApiUrlContext);
   const [category, setCategory] = useContext(MenuContext);
   const {error, setError} = useContext(ErrorContext);
   const navigate = useNavigate();
 
 /// SET IN THE CATEGORY STATE THE CATEGORY DESIRE ///
   const categoryHandler = (name) => {
-    axios.post('https://salty-sierra-99669-c9d7dcf22123.herokuapp.com/api/menu-item-category', {category: name, available: true})
+    axios.post(`${apiUrl}/api/menu-item-category`, {category: name, available: true})
     .then((result) => setCategory(result.data))
     .catch(err => {
       setError(err);

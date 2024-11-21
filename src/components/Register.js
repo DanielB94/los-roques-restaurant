@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import './styles/register.css';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext';
+import { ApiUrlContext } from '../context/ApiUrlContext';
 
 
 const Register = () => {
-
+    const apiUrl  = useContext(ApiUrlContext);
     const { userInfo, setUserInfo } = useContext(UserContext);
 
     const [valid, setValid] = useState('');
@@ -37,7 +38,7 @@ const Register = () => {
             alert('Las Contraseñas no coinciden');
         } else {
             e.preventDefault();
-            axios.post('http://localhost:3200/adminApi/create-user', {name, last_name, email, password, confirm_password, gender})
+            axios.post(`${apiUrl}/adminApi/create-user`, {name, last_name, email, password, confirm_password, gender})
             .then(user => {
                 setUserInfo({user});
                 localStorage.setItem('token', user.data.token);

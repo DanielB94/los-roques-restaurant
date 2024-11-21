@@ -20,7 +20,6 @@ const CardPage = (props) => {
     const openModal = (id) => {
         setIsOpen(id);
     };
-    console.log(userInfo)
 
     const redirectButton = () => {
         navigate('/login');

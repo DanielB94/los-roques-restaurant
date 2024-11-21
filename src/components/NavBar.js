@@ -10,9 +10,10 @@ import axios from 'axios';
 import { MenuContext } from '../context/MenuContext';
 import { ErrorContext } from '../context/ErrorContext';
 import { socket } from '../socket';
-
+import { ApiUrlContext } from '../context/ApiUrlContext';
 
 const NavBar = (props) => {
+    const apiUrl  = useContext(ApiUrlContext);
     const { cartItems } = props;
     const [SignIn, setSignIn] = useState(false);
     const [hamburguerOpen, setHamburguerOpen] = useState(false);
@@ -56,7 +57,7 @@ const NavBar = (props) => {
 
     /// LOGOUT HANDLER ///
     const logout = () => {
-        axios.post('http://localhost:3200/api/logout', {}, {withCredentials: true})
+        axios.post(`${apiUrl}/api/logout`, {}, {withCredentials: true})
         .then(user => {
             setUserInfo(null);
             socket.disconnect();
@@ -67,7 +68,7 @@ const NavBar = (props) => {
 
     /// ORDER BTN HANDLER ///
     const orderBtn = () => {
-        axios.get('https://salty-sierra-99669-c9d7dcf22123.herokuapp.com/api/menu-items')
+        axios.get(`${apiUrl}/api/menu-items`)
         .then((result) => {
             setCategory(result.data);
         })

@@ -10,10 +10,12 @@ import { MenuContext } from './context/MenuContext';
 import { OrderContext } from './context/OrderContext';
 import { ErrorContext } from './context/ErrorContext';
 import { RewardContext } from './context/RewardContext';
+import { ApiUrlContext } from './context/ApiUrlContext';
 import { socket } from './socket';
 
 
 function App() {
+  const apiUrl = 'https://api.losroquesrestaurant.com';
   const [cartItems, setCartItems] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
   const [orders, setOrders] = useState([])
@@ -42,18 +44,20 @@ function App() {
 
   return (
     <Router>
-      <OrderContext.Provider value={{orders, setOrders}}>
-        <UserContext.Provider value={{ userInfo, setUserInfo}}>
-          <MenuContext.Provider value={[category, setCategory]}>
-            <ErrorContext.Provider value={{error, setError}}>
-              <RewardContext.Provider value={{reward, setReward}}>
-            <NavBar cartItems={cartItems}/>
-            <RouteSwitch cartItems={cartItems} setCartItems={setCartItems} handlerAddButton={handlerAddButton} orders={orders}/>
-            </RewardContext.Provider>
-          </ErrorContext.Provider>
-          </MenuContext.Provider>
-        </UserContext.Provider>
-        </OrderContext.Provider>
+      <ApiUrlContext.Provider value={apiUrl}>
+        <OrderContext.Provider value={{orders, setOrders}}>
+          <UserContext.Provider value={{ userInfo, setUserInfo}}>
+            <MenuContext.Provider value={[category, setCategory]}>
+              <ErrorContext.Provider value={{error, setError}}>
+                <RewardContext.Provider value={{reward, setReward}}>
+              <NavBar cartItems={cartItems}/>
+              <RouteSwitch cartItems={cartItems} setCartItems={setCartItems} handlerAddButton={handlerAddButton} orders={orders}/>
+              </RewardContext.Provider>
+            </ErrorContext.Provider>
+            </MenuContext.Provider>
+          </UserContext.Provider>
+          </OrderContext.Provider>
+        </ApiUrlContext.Provider>
       <Footer />
     </Router>
   );

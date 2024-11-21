@@ -8,26 +8,28 @@ import { ErrorContext } from '../context/ErrorContext';
 import { socket } from '../socket';
 import check from '../assets/check.png';
 import remove from '../assets/remove.png';
+import { ApiUrlContext } from '../context/ApiUrlContext';
 
 
 const Admin = (props) => {
-  const [category, setCategory] = useContext(MenuContext);
-  const [orders, setOrders] = useState([]);
-  const [orderFromIo, setOrderFromIo] = useState([]);
-  const [value, setValue] = useState(null);
-  const {error, setError} = useContext(ErrorContext);
-  const navigate = useNavigate();
-  
-  
-  useEffect(() => {
-    socket.connect();
-  
-    socket.emit('joinRoom', 'AdminRoom');
+const apiUrl  = useContext(ApiUrlContext);
+const [category, setCategory] = useContext(MenuContext);
+const [orders, setOrders] = useState([]);
+const [orderFromIo, setOrderFromIo] = useState([]);
+const [value, setValue] = useState(null);
+const {error, setError} = useContext(ErrorContext);
+const navigate = useNavigate();
 
-    socket.on('changes', (change) => {
-      console.log(change);
-      setOrderFromIo([...orderFromIo, change]);
-      console.log(orderFromIo);
+
+useEffect(() => {
+  socket.connect();
+  
+  socket.emit('joinRoom', 'AdminRoom');
+  
+  socket.on('changes', (change) => {
+    console.log(change);
+    setOrderFromIo([...orderFromIo, change]);
+    console.log(orderFromIo);
     });
 
     socket.on('menuChanges', (change) => {
@@ -37,7 +39,7 @@ const Admin = (props) => {
 
     /// FUNCTION TO POP A DONE ORDER FROM THE ARRAY ///
   const doneHandler = (id) => {
-    axios.post('http://localhost:3200/adminApi/get-order', {id}, {
+    axios.post(`${apiUrl}/adminApi/get-order`, {id}, {
       headers : {
         Authorization: `${localStorage.getItem('token')}`
       }
@@ -51,7 +53,7 @@ const Admin = (props) => {
 
   /// FUNCTION TO CHANGE THE STATUS OF MENU ITEMS ///
   const statusHandler =  (id, status) => {
-      axios.post('http://localhost:3200/adminApi/update-status', {id, status}, { headers : {
+      axios.post(`${apiUrl}/adminApi/update-status`, {id, status}, { headers : {
         Authorization: `${localStorage.getItem('token')}`
       } })
       .then(result => {
@@ -64,7 +66,7 @@ const Admin = (props) => {
 
   useEffect(() => {
     const categoryHandler = (name) => {
-      axios.get('http://localhost:3200/api/menu-items')
+      axios.get(`${apiUrl}/api/menu-items`)
       .then((result) => {
           setCategory(result.data);
           console.log(category)

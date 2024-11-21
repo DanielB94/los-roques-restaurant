@@ -5,16 +5,17 @@ import axios from 'axios';
 import { MenuContext } from '../context/MenuContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { ErrorContext } from '../context/ErrorContext';
+import { ApiUrlContext } from '../context/ApiUrlContext';
 
 const HomePage = () => {
-  
+  const apiUrl  = useContext(ApiUrlContext);
   const [category, setCategory] = useContext(MenuContext);
   const { error, setError } = useContext(ErrorContext);
   const navigate = useNavigate();
 
 /// SET IN THE CATEGORY STATE THE CATEGORY DESIRE ///
   const categoryHandler = (name) => {
-    axios.post('http://localhost:3200/api/menu-item-category', {category: name})
+    axios.post(`${apiUrl}/api/menu-item-category`, {category: name})
     .then((result) => { 
       setCategory(result.data);
     })

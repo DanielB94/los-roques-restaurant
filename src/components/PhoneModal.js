@@ -3,10 +3,12 @@ import React, { useState, useContext } from 'react';
 import './styles/phoneModal.css';
 import { Placeholder } from 'phosphor-react';
 import { UserContext } from '../context/UserContext';
+import { ApiUrlContext } from '../context/ApiUrlContext';
 
 const PhoneModal = (props) => {
     const { closeModal } = props;
     const [phone, setPhone] = useState();
+    const apiUrl  = useContext(ApiUrlContext);
     const { userInfo, setUserInfo } = useContext(UserContext);
     console.log(closeModal)
     
@@ -24,7 +26,7 @@ const PhoneModal = (props) => {
         
         const phoneHandler = (e) => {
             e.preventDefault()
-            axios.post('http://localhost:3200/api/phoneNumber', {user_id, phone}, {withCredentials: true})
+            axios.post(`${apiUrl}/api/phoneNumber`, {user_id, phone}, {withCredentials: true})
             .then(result => {
                 if(result) {
                     closeModal();

@@ -9,13 +9,13 @@ import { RewardContext } from '../context/RewardContext';
 import { UserContext } from '../context/UserContext';
 import PhoneModal from './PhoneModal';
 import { socket } from '../socket';
-
+import { ApiUrlContext } from '../context/ApiUrlContext';
 
 const CartPage = (props) => {
-
     const navigate = useNavigate();
     const { cartItems } = props;
     const {setCartItems } = props;
+    const apiUrl  = useContext(ApiUrlContext);
     const { userInfo, setUserInfo } = useContext(UserContext);
     const {orders, setOrders} = useContext(OrderContext);
     const { error, setError } = useContext(ErrorContext);
@@ -97,7 +97,7 @@ const checkboxHandler = () => {
                 console.log('.');
             } else {
                 if (userInfo.user.data.info.hasOwnProperty('phone')) {
-                    const order = await axios.post('http://localhost:3200/api/create-order', {
+                    const order = await axios.post(`${apiUrl}/api/create-order`, {
                         client: user._id,
                         client_name: user.name,
                         cart: cartItems,

@@ -6,19 +6,20 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import { socket } from '../socket';
-
+import { ApiUrlContext } from '../context/ApiUrlContext';
 
 const AdminLog = () => {
+    const apiUrl  = useContext(ApiUrlContext);
     const { userInfo, setUserInfo } = useContext(UserContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-
+    
     /// SUBMIT ADMIN HANDLER ///
     const submit = async (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3200/adminApi/adminLog", { email: email, password: password })
+        axios.post(`${apiUrl}/adminApi/adminLog`, { email: email, password: password })
             .then((user) => {
                 socket.connect();
                 localStorage.setItem('token', user.data.jwt.token);

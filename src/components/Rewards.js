@@ -6,13 +6,14 @@ import axios from 'axios';
 import { RewardContext } from '../context/RewardContext';
 import { MenuContext } from '../context/MenuContext';
 import { ErrorContext } from '../context/ErrorContext';
+import { ApiUrlContext } from '../context/ApiUrlContext';
 import { socket } from '../socket';
-
 
 const Rewards = (props) => {
   const { getColor, progress} = props;
-  const { userInfo, setUserInfo } = useContext(UserContext);
   const navigate = useNavigate();
+  const { userInfo, setUserInfo } = useContext(UserContext);
+  const apiUrl  = useContext(ApiUrlContext);
   const { reward, setReward } = useContext(RewardContext);
   const [category, setCategory] = useContext(MenuContext);
   const {error, setError} = useContext(ErrorContext);
@@ -22,7 +23,7 @@ const Rewards = (props) => {
   /// SETS THE DESERIALIZED USER IN THE USERINFO STATE FROM GOOGLE OR FACEBOOK STRAT ///
     const google = ( async () => {
       try {
-        const user = await axios.get('http://localhost:3200/api/login/success', {withCredentials: true});
+        const user = await axios.get(`${apiUrl}/api/login/success`, {withCredentials: true});
 
         if (user.data.info) {
           setUserInfo({user})
@@ -38,7 +39,7 @@ const Rewards = (props) => {
      const rewardsApi = ( async () => {
       try {
 
-      const rewardResult = await axios.get('http://localhost:3200/api/rewards', {withCredentials: true})
+      const rewardResult = await axios.get(`${apiUrl}/api/rewards`, {withCredentials: true})
         
       setReward(rewardResult.data.user.rewards);
 
@@ -49,7 +50,7 @@ const Rewards = (props) => {
   }, []);
 
   const orderBtn = () => {
-    axios.get('http://localhost:3200/api/menu-items')
+    axios.get(`${apiUrl}/api/menu-items`)
     .then((result) => {
         setCategory(result.data);
     })
