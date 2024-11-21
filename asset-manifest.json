@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.a0f3c031.css",
-    "main.js": "/static/js/main.63de0085.js",
+    "main.js": "/static/js/main.7489aa18.js",
     "static/js/453.a01442be.chunk.js": "/static/js/453.a01442be.chunk.js",
     "static/media/pataacon.png": "/static/media/pataacon.cba5ab4cdc513e892d93.png",
     "static/media/hamburguesa.png": "/static/media/hamburguesa.a81e05bdff053c28dce5.png",
@@ -21,11 +21,11 @@
     "static/media/facebook(3).png": "/static/media/facebook(3).388a72b94b24edfa0eed.png",
     "index.html": "/index.html",
     "main.a0f3c031.css.map": "/static/css/main.a0f3c031.css.map",
-    "main.63de0085.js.map": "/static/js/main.63de0085.js.map",
+    "main.7489aa18.js.map": "/static/js/main.7489aa18.js.map",
     "453.a01442be.chunk.js.map": "/static/js/453.a01442be.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a0f3c031.css",
-    "static/js/main.63de0085.js"
+    "static/js/main.7489aa18.js"
   ]
 }
