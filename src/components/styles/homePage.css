@@ -58,7 +58,7 @@ height: 80vh;
     flex-grow: 1;
 }
 .hamburguers {
-    
+    background: url('/src/assets/hamburguesa.png');
     background-size: cover;
 }
 .patacon {
