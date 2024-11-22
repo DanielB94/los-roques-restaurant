@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react';
-import hamburguer from '/home/daniel/online-restaurant/restaurant-front-end/src/assets/hamburguesa.png';
 import './styles/cardPage.css';
 import { Minus, Plus, SunMediumIcon } from 'lucide-react';
 import Modifications from './modifications';
