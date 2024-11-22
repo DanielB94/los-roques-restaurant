@@ -7,6 +7,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ErrorContext } from '../context/ErrorContext';
 import { ApiUrlContext } from '../context/ApiUrlContext';
 
+import burguer from '../assets/hamburguesa.png';
+
 const HomePage = () => {
   const apiUrl  = useContext(ApiUrlContext);
   const [category, setCategory] = useContext(MenuContext);
@@ -47,6 +49,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className='hamburguers cards'>
+              <img src={burguer} alt="hamburguer" />
             <div className='cardInfo'>
               <h2>Hamburguers</h2>
               <button className='cta' name='hamburguer' onClick={(e) => categoryHandler(e.target.name)}>ORDER NOW</button>
