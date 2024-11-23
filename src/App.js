@@ -15,7 +15,7 @@ import { socket } from './socket';
 
 
 function App() {
-  const apiUrl = 'http://api.losroquesrestaurant.com';
+  const apiUrl = 'https://api.losroquesrestaurant.com';
   const [cartItems, setCartItems] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
   const [orders, setOrders] = useState([])
