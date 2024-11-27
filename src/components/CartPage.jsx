@@ -34,7 +34,7 @@ const CartPage = (props) => {
     const [message, setMessage] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:3200/api/stripeConfig')
+        axios.get(`${apiUrl}/api/stripeConfig`)
         .then(result => setStripePromise(loadStripe(result.data.publishableKEY, console.log(result))))
         .catch(err => navigate('/serverError'));
     }, []);
@@ -111,7 +111,7 @@ const checkboxHandler = () => {
                 console.log('.');
             } else {
                 if (userInfo.user.data.info.hasOwnProperty('phone')) {
-                    const order = await axios.post(`http://localhost:3200/api/create-order`, {
+                    const order = await axios.post(`${apiUrl}/api/create-order`, {
                         client: user._id,
                         client_name: user.name,
                         cart: cartItems,
@@ -173,6 +173,7 @@ const checkboxHandler = () => {
                 </div>
             )
         })}
+        {cartItems.length >= 1 ?
         <div className="total">
             {reward === 0 ? null : <div className='reward'>
                 <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
@@ -184,7 +185,8 @@ const checkboxHandler = () => {
             <p id='reward'>Recompensas por esta compra ${totalItemsRewards}</p>
             <button className='cta' onClick={orderHandler}>Comprar</button>
             {message ? <p>{message}</p> : null}
-        </div>
+            
+        </div> : <p>Tu carrito esta vacio</p>}
         {option === null ?
         null :
         <CheckoutForm />

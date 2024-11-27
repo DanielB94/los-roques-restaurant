@@ -9,12 +9,12 @@ const LogIn = () => {
     
     /// GOOGLE STRATEGY ///
     const google = () => {
-        window.location.href =`http://localhost:3200/api/auth/google`;
+        window.location.href =`${apiUrl}/api/auth/google`;
     }
 
     /// FACEBOOK STRATEGY ///
     const facebook = () => {
-        window.location.href =`http://localhost:3200/api/auth/facebook`;
+        window.location.href =`${apiUrl}/api/auth/facebook`;
     }
 
   return (
