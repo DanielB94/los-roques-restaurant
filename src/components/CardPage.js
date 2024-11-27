@@ -3,8 +3,8 @@ import './styles/cardPage.css';
 import { Minus, Plus, SunMediumIcon } from 'lucide-react';
 import Modifications from './modifications';
 import { MenuContext } from '../context/MenuContext';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { UserContext } from '../context/UserContext';
 
 const CardPage = (props) => {

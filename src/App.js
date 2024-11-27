@@ -12,6 +12,7 @@ import { ErrorContext } from './context/ErrorContext';
 import { RewardContext } from './context/RewardContext';
 import { ApiUrlContext } from './context/ApiUrlContext';
 import { socket } from './socket';
+import { OptionContext } from './context/OptionContext';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   const [category, setCategory] = useState([]);
   const [error, setError] = useState(null);
   const [reward, setReward] = useState(null);
+  const [option, setOption] = useState(null);
   
   socket.on('connect', () => console.log('Connected to server'));
 
@@ -50,8 +52,10 @@ function App() {
             <MenuContext.Provider value={[category, setCategory]}>
               <ErrorContext.Provider value={{error, setError}}>
                 <RewardContext.Provider value={{reward, setReward}}>
+                  <OptionContext.Provider value={{option, setOption}}>
               <NavBar cartItems={cartItems}/>
               <RouteSwitch cartItems={cartItems} setCartItems={setCartItems} handlerAddButton={handlerAddButton} orders={orders}/>
+                </OptionContext.Provider>
               </RewardContext.Provider>
             </ErrorContext.Provider>
             </MenuContext.Provider>

@@ -10,6 +10,11 @@ import { UserContext } from '../context/UserContext';
 import PhoneModal from './PhoneModal';
 import { socket } from '../socket';
 import { ApiUrlContext } from '../context/ApiUrlContext';
+import { OptionContext } from '../context/OptionContext';
+
+import { loadStripe } from '@stripe/stripe-js';
+import CheckoutForm from './CheckoutForm';
+import { Elements } from '@stripe/react-stripe-js';
 
 const CartPage = (props) => {
     const navigate = useNavigate();
@@ -20,10 +25,19 @@ const CartPage = (props) => {
     const {orders, setOrders} = useContext(OrderContext);
     const { error, setError } = useContext(ErrorContext);
     const { reward, setReward } = useContext(RewardContext);
+    const { option, setOption } = useContext(OptionContext);
+
+    const [ stripePromise, setStripePromise ] = useState(null);
 
     const [isModalVisible, SetIsModalVisible] = useState(false);
     const [checkbox, setCheckbox] = useState(false);
     const [message, setMessage] = useState(null);
+
+    useEffect(() => {
+        axios.get('http://localhost:3200/api/stripeConfig')
+        .then(result => setStripePromise(loadStripe(result.data.publishableKEY, console.log(result))))
+        .catch(err => navigate('/serverError'));
+    }, []);
 
 /// PHONE NUMBER MODAL HANDLER ///
 const closeModal = () => {
@@ -97,7 +111,7 @@ const checkboxHandler = () => {
                 console.log('.');
             } else {
                 if (userInfo.user.data.info.hasOwnProperty('phone')) {
-                    const order = await axios.post(`${apiUrl}/api/create-order`, {
+                    const order = await axios.post(`http://localhost:3200/api/create-order`, {
                         client: user._id,
                         client_name: user.name,
                         cart: cartItems,
@@ -111,8 +125,11 @@ const checkboxHandler = () => {
                         total: total
                     }, { withCredentials: true})
                     .then((result) => {
+                        console.log(result)
                         setOrders(result.data.order);
-                        window.open(`${result.data.url}`);
+                        setOption({clientSecret: `${result.data.client_secret}`});
+                        console.log(option)
+                        
                     })
                     
                 } else {
@@ -156,7 +173,7 @@ const checkboxHandler = () => {
                 </div>
             )
         })}
-        {cartItems.length >= 1  ? <div className="total">
+        <div className="total">
             {reward === 0 ? null : <div className='reward'>
                 <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
                 <input id='reward' type='checkbox' onClick={checkboxHandler}/>
@@ -167,7 +184,11 @@ const checkboxHandler = () => {
             <p id='reward'>Recompensas por esta compra ${totalItemsRewards}</p>
             <button className='cta' onClick={orderHandler}>Comprar</button>
             {message ? <p>{message}</p> : null}
-        </div> : <p>Tu carrito esta vacio</p>}
+        </div>
+        {option === null ?
+        null :
+        <CheckoutForm />
+        }
     </div>
   )
 }
