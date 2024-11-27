@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import './styles/login.css';
 import fb from '../assets/facebook(3).png';
 import gg from '../assets/google.png';
-import ig  from '../assets/Instagram-name-logo-transparent-PNG.png'
 import { ApiUrlContext } from '../context/ApiUrlContext';
 
 const LogIn = () => {
@@ -10,12 +9,12 @@ const LogIn = () => {
     
     /// GOOGLE STRATEGY ///
     const google = () => {
-        window.location.href =`${apiUrl}/api/auth/google`;
+        window.location.href =`http://localhost:3200/api/auth/google`;
     }
 
     /// FACEBOOK STRATEGY ///
     const facebook = () => {
-        window.location.href =`${apiUrl}/api/auth/facebook`;
+        window.location.href =`http://localhost:3200/api/auth/facebook`;
     }
 
   return (

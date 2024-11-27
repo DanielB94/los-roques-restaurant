@@ -23,7 +23,7 @@ const Rewards = (props) => {
   /// SETS THE DESERIALIZED USER IN THE USERINFO STATE FROM GOOGLE OR FACEBOOK STRAT ///
     const google = ( async () => {
       try {
-        const user = await axios.get(`${apiUrl}/api/login/success`, {withCredentials: true});
+        const user = await axios.get(`http://localhost:3200/api/login/success`, {withCredentials: true});
 
         if (user.data.info) {
           setUserInfo({user})
@@ -39,7 +39,7 @@ const Rewards = (props) => {
      const rewardsApi = ( async () => {
       try {
 
-      const rewardResult = await axios.get(`${apiUrl}/api/rewards`, {withCredentials: true})
+      const rewardResult = await axios.get(`http://localhost:3200/api/rewards`, {withCredentials: true})
         
       setReward(rewardResult.data.user.rewards);
 
