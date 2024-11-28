@@ -4,6 +4,7 @@
     align-items: center;
     padding: 80px;
     min-height: 87vh;
+    position: relative;
 }
 #h2 {
     margin-bottom: 10px;

@@ -2,7 +2,7 @@ import { React, useCallback, useContext } from 'react';
 import {loadStripe} from '@stripe/stripe-js';
 import { EmbeddedCheckoutProvider, EmbeddedCheckout
 } from '@stripe/react-stripe-js';
-import axios from 'axios';
+import './styles/checkout.css';
 import { OptionContext } from '../context/OptionContext';
 
 const stripePromise = loadStripe("pk_test_51Pg8t9RuLD47u0xXTF5u2l5IMcbweVzFJRkBnirmuArI2E4mNBRkilsK27bqtEaKsFTIPdYdjviwpXTJQPgWuYdH00gJM7wQs6");
