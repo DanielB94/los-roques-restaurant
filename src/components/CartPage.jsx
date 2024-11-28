@@ -41,11 +41,9 @@ const CartPage = (props) => {
 
 /// PHONE NUMBER MODAL HANDLER ///
 const closeModal = () => {
-    if (isModalVisible === false) {
-        SetIsModalVisible(true);
-    } else {
-        SetIsModalVisible(false)
-    }
+    if (!isModalVisible) {
+        SetIsModalVisible(false);
+    };
 };
 
 const checkboxHandler = () => {
