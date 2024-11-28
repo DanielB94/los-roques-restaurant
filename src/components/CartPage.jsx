@@ -47,12 +47,6 @@ const closeModal = () => {
     }
 };
 
-const checkoutModal = () => {
-    if (isModalVisible) {
-        SetIsModalVisible(false);
-    }
-};
-
 const checkboxHandler = () => {
     if (checkbox) {
         setCheckbox(false);
