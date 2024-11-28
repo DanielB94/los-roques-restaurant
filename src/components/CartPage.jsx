@@ -30,6 +30,7 @@ const CartPage = (props) => {
     const [ stripePromise, setStripePromise ] = useState(null);
 
     const [isModalVisible, SetIsModalVisible] = useState(false);
+    const [checkoutVisible, setCheckoutVisible] = useState(false);
     const [checkbox, setCheckbox] = useState(false);
     const [message, setMessage] = useState(null);
 
@@ -41,7 +42,13 @@ const CartPage = (props) => {
 
 /// PHONE NUMBER MODAL HANDLER ///
 const closeModal = () => {
-    if (!isModalVisible) {
+    if (isModalVisible) {
+        SetIsModalVisible(false);
+    }
+};
+
+const checkoutModal = () => {
+    if (isModalVisible) {
         SetIsModalVisible(false);
     }
 };
@@ -129,7 +136,7 @@ const checkboxHandler = () => {
                         setOrders(result.data.order);
                         setOption({clientSecret: `${result.data.client_secret}`});
                         console.log(option)
-                        
+                        checkoutVisible(true);
                     })
                     
                 } else {
@@ -173,23 +180,24 @@ const checkboxHandler = () => {
                 </div>
             )
         })}
-        <div className="total">
-            {reward === 0 ? null : <div className='reward'>
-                <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
-                <input id='reward' type='checkbox' onClick={checkboxHandler}/>
-            </div>}
-            <p>Subtotal ({totalProducts} productos): ${subTotal}</p>
-            <p>Taxes: ${totalTaxes}</p>
-            <p>Total: ${total}</p>
-            <p id='reward'>Recompensas por esta compra ${totalItemsRewards}</p>
-            <button className='cta' onClick={orderHandler}>Comprar</button>
-            {message ? <p>{message}</p> : null}
+        {orders.length >= 1 ?
+            <div className="total">
+                {reward === 0 ? null : <div className='reward'>
+                    <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
+                    <input id='reward' type='checkbox' onClick={checkboxHandler}/>
+                </div>}
+                <p>Subtotal ({totalProducts} productos): ${subTotal}</p>
+                <p>Taxes: ${totalTaxes}</p>
+                <p>Total: ${total}</p>
+                <p id='reward'>Recompensas por esta compra ${totalItemsRewards}</p>
+                <button className='cta' onClick={orderHandler}>Comprar</button>
+                {message ? <p>{message}</p> : null}
+            </div> : <p>Tu carrito esta vacio</p>}
+            {option === null ?
+            null :
+            <CheckoutForm checkoutModal={setCheckoutVisible}/>
+            }
         </div>
-        {option === null ?
-        null :
-        <CheckoutForm />
-        }
-    </div>
   )
 }
 
