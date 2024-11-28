@@ -34,7 +34,7 @@ const CartPage = (props) => {
     const [message, setMessage] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:3200/api/stripeConfig')
+        axios.get(`${apiUrl}/api/stripeConfig`)
         .then(result => setStripePromise(loadStripe(result.data.publishableKEY, console.log(result))))
         .catch(err => navigate('/serverError'));
     }, []);
@@ -111,7 +111,7 @@ const checkboxHandler = () => {
                 console.log('.');
             } else {
                 if (userInfo.user.data.info.hasOwnProperty('phone')) {
-                    const order = await axios.post(`http://localhost:3200/api/create-order`, {
+                    const order = await axios.post(`${apiUrl}/api/create-order`, {
                         client: user._id,
                         client_name: user.name,
                         cart: cartItems,
