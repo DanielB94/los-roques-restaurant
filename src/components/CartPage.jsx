@@ -130,7 +130,7 @@ const checkboxHandler = () => {
                         setOrders(result.data.order);
                         setOption({clientSecret: `${result.data.client_secret}`});
                         console.log(option)
-                        checkoutVisible(true);
+                        setCheckoutVisible(true);
                     })
                     
                 } else {
@@ -187,9 +187,9 @@ const checkboxHandler = () => {
                 <button className='cta' onClick={orderHandler}>Comprar</button>
                 {message ? <p>{message}</p> : null}
             </div> : <p>Tu carrito esta vacio</p>}
-            {option === null ?
-            null :
-            <CheckoutForm checkoutModal={setCheckoutVisible}/>
+            {option !== null && checkoutVisible === true ?
+            <CheckoutForm checkoutModal={setCheckoutVisible}/> :
+            null
             }
         </div>
   )
