@@ -174,7 +174,7 @@ const checkboxHandler = () => {
                 </div>
             )
         })}
-        {orders.length >= 1 ?
+        {cartItems.length >= 1 ?
             <div className="total">
                 {reward === 0 ? null : <div className='reward'>
                     <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
