@@ -30,7 +30,7 @@ const PhoneModal = (props) => {
             .then(user => {
                 if(user) {
                     closeModal();
-                    setUserInfo(user.data.info)
+                    setUserInfo(user)
                     console.log(user)
                 }
             })
