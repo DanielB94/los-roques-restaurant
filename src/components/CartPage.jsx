@@ -188,7 +188,7 @@ const checkboxHandler = () => {
                 {message ? <p>{message}</p> : null}
             </div> : <p>Tu carrito esta vacio</p>}
             {option !== null && checkoutVisible === true ?
-            <CheckoutForm setCheckoutVisible={setCheckoutVisible}/> :
+            <CheckoutForm setCheckout={setCheckoutVisible}/> :
             null
             }
         </div>

@@ -41,7 +41,7 @@ const PhoneModal = (props) => {
                 <div className='phoneContainer'>
         <div className='phoneModal'>
       <p>Necesitamos tu numero de telefono<br />para avisarte el status de tu orden</p>
-      <form onSubmit={phoneHandler()} className='phoneForm'>
+      <form onSubmit={phoneHandler} className='phoneForm'>
         <input type='tel' name="phone" onChange={(e) => setPhone(e.target.value)} placeholder='(000) 000-0000' required/>
         <button className='cta'>Agregar</button>
       </form>
