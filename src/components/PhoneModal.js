@@ -27,10 +27,11 @@ const PhoneModal = (props) => {
         const phoneHandler = (e) => {
             e.preventDefault()
             axios.post(`${apiUrl}/api/phoneNumber`, {user_id, phone}, {withCredentials: true})
-            .then(result => {
-                if(result) {
+            .then(user => {
+                if(user) {
                     closeModal();
-                    console.log(result)
+                    setUserInfo(user.data.info)
+                    console.log(user)
                 }
             })
             .catch(err => console.log(err));
