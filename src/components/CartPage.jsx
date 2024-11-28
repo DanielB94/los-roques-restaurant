@@ -38,6 +38,12 @@ const CartPage = (props) => {
         axios.get(`${apiUrl}/api/stripeConfig`)
         .then(result => setStripePromise(loadStripe(result.data.publishableKEY, console.log(result))))
         .catch(err => navigate('/serverError'));
+        
+            if (userInfo) {
+                return user = userInfo.user.data.info;
+            } else {
+                return user = null
+            }
     }, []);
 
 /// PHONE NUMBER MODAL HANDLER ///
@@ -61,13 +67,6 @@ const checkboxHandler = () => {
 /// AQUI DEBE ESTAR EL PROBLEMA NO ESTOY INICIALIZANDO USER ///
     let user;
 
-    const userHandler = (() => {
-        if (userInfo) {
-            return user = userInfo.user.data.info;
-        } else {
-            return user = null
-        }
-    })();
 
     /// THIS FUNCTIONS HANDLERS ALL THE MATH LOGIC FROM THE CARTITEMS ARRAY ///
     const getSubTotal = () => {
