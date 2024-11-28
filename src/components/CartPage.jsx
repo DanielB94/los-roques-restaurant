@@ -41,7 +41,7 @@ const CartPage = (props) => {
 
 /// PHONE NUMBER MODAL HANDLER ///
 const closeModal = () => {
-    if (!isModalVisible) {
+    if (isModalVisible) {
         SetIsModalVisible(false);
     };
 };
