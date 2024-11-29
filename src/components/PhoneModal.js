@@ -29,7 +29,8 @@ const PhoneModal = (props) => {
             .then(user => {
                 if(user) {
                     closeModal();
-                    console.log(user)
+                    setUserInfo(user);
+                    console.log(user);
                 }
             })
             .catch(err => console.log(err));
