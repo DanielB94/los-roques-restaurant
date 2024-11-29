@@ -156,7 +156,7 @@ const checkboxHandler = () => {
   return (
     <div className='cartContainer'>
 
-        {isModalVisible ? <PhoneModal closeModal={closeModal} /> : null}
+        {isModalVisible ? <PhoneModal closeModal={closeModal} phone={phone} setPhone={setPhone} /> : null}
       <h2 id='h2'>Su carro de compras</h2>
 
         {cartItems.map((cartItem) => {
