@@ -31,6 +31,7 @@ const CartPage = (props) => {
 
     const [isModalVisible, SetIsModalVisible] = useState(false);
     const [phone, setPhone] = useState(null);
+    console.log(phone)
     const [checkoutVisible, setCheckoutVisible] = useState(false);
     const [checkbox, setCheckbox] = useState(false);
     const [message, setMessage] = useState(null);
