@@ -36,19 +36,10 @@ const CartPage = (props) => {
     const [checkbox, setCheckbox] = useState(false);
     const [message, setMessage] = useState(null);
 
-    let user;
-    
     useEffect(() => {
         axios.get(`${apiUrl}/api/stripeConfig`)
         .then(result => setStripePromise(loadStripe(result.data.publishableKEY, console.log(result))))
         .catch(err => navigate('/serverError'));
-        
-
-            if (userInfo) {
-                return user = userInfo.user.data.info;
-            } else {
-                return user = null
-            }
     }, []);
 
 /// PHONE NUMBER MODAL HANDLER ///
@@ -70,6 +61,18 @@ const checkboxHandler = () => {
 /// KNOW IF THE USER IS AUTHENTICATED LOGIC ///
 
 /// AQUI DEBE ESTAR EL PROBLEMA NO ESTOY INICIALIZANDO USER ///
+    let user;
+
+    const userHandler = (() => {
+        if (userInfo) {
+            if (userInfo.user.data.info.hasOwnProperty('phone')) {
+                setPhone(userInfo.user.data.info.phone)
+            }
+            return user = userInfo.user.data.info;
+        } else {
+            return user = null
+        }
+    })();
 
     /// THIS FUNCTIONS HANDLERS ALL THE MATH LOGIC FROM THE CARTITEMS ARRAY ///
     const getSubTotal = () => {
@@ -113,7 +116,7 @@ const checkboxHandler = () => {
                 navigate('/errorPage');
                 console.log('.');
             } else {
-                if (userInfo.user.data.info.hasOwnProperty('phone')) {
+                if (userInfo.user.data.info.hasOwnProperty('phone') || phone !== null) {
                     const order = await axios.post(`${apiUrl}/api/create-order`, {
                         client: user._id,
                         client_name: user.name,
