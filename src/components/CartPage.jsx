@@ -31,10 +31,24 @@ const CartPage = (props) => {
 
     const [isModalVisible, SetIsModalVisible] = useState(false);
     const [phone, setPhone] = useState(null);
-    console.log(phone)
     const [checkoutVisible, setCheckoutVisible] = useState(false);
     const [checkbox, setCheckbox] = useState(false);
     const [message, setMessage] = useState(null);
+    
+    /// KNOW IF THE USER IS AUTHENTICATED LOGIC ///
+    let user;
+    
+    const userHandler = (() => {
+        if (userInfo) {
+            if (userInfo.user.data.info.hasOwnProperty('phone')) {
+                setPhone(userInfo.user.data.info.phone)
+            }
+            return user = userInfo.user.data.info;
+        } else {
+            return user = null
+        }
+    })();
+    console.log(phone)
 
     useEffect(() => {
         axios.get(`${apiUrl}/api/stripeConfig`)
@@ -57,22 +71,6 @@ const checkboxHandler = () => {
     }
     console.log(checkbox);
 };
-
-/// KNOW IF THE USER IS AUTHENTICATED LOGIC ///
-
-/// AQUI DEBE ESTAR EL PROBLEMA NO ESTOY INICIALIZANDO USER ///
-    let user;
-
-    const userHandler = (() => {
-        if (userInfo) {
-            if (userInfo.user.data.info.hasOwnProperty('phone')) {
-                setPhone(userInfo.user.data.info.phone)
-            }
-            return user = userInfo.user.data.info;
-        } else {
-            return user = null
-        }
-    })();
 
     /// THIS FUNCTIONS HANDLERS ALL THE MATH LOGIC FROM THE CARTITEMS ARRAY ///
     const getSubTotal = () => {
