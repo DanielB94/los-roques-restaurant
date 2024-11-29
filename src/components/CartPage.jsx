@@ -30,7 +30,7 @@ const CartPage = (props) => {
     const [ stripePromise, setStripePromise ] = useState(null);
 
     const [isModalVisible, SetIsModalVisible] = useState(false);
-    const [phone, setPhone] = useState(false);
+    const [phone, setPhone] = useState(null);
     const [checkoutVisible, setCheckoutVisible] = useState(false);
     const [checkbox, setCheckbox] = useState(false);
     const [message, setMessage] = useState(null);
@@ -40,7 +40,12 @@ const CartPage = (props) => {
     
     const userHandler = (() => {
         if (userInfo) {
-            return user = userInfo.user.data.info;
+            user = userInfo.user.data.info;
+            if (user.phone) {
+                setPhone(user.phone)
+            } else {
+                setPhone(null)
+            }
         } else {
             return user = null
         }
@@ -50,12 +55,6 @@ const CartPage = (props) => {
         axios.get(`${apiUrl}/api/stripeConfig`)
         .then(result => setStripePromise(loadStripe(result.data.publishableKEY, console.log(result))))
         .catch(err => navigate('/serverError'));
-        
-        if (userInfo.user.data.info.phone) {
-            return setPhone(userInfo.user.data.info.phone)
-        } else {
-            return setPhone(false);
-        }
     }, []);
     console.log(phone)
 
