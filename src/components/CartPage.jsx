@@ -30,7 +30,7 @@ const CartPage = (props) => {
     const [ stripePromise, setStripePromise ] = useState(null);
 
     const [isModalVisible, SetIsModalVisible] = useState(false);
-    const [phone, setPhone] = useState(null);
+    const [phone, setPhone] = useState(false);
     const [checkoutVisible, setCheckoutVisible] = useState(false);
     const [checkbox, setCheckbox] = useState(false);
     const [message, setMessage] = useState(null);
@@ -40,12 +40,7 @@ const CartPage = (props) => {
     
     const userHandler = (() => {
         if (userInfo) {
-            user = userInfo.user.data.info;
-            if (user.phone) {
-                setPhone(user.phone)
-            } else {
-                setPhone(null)
-            }
+            return user = userInfo.user.data.info;
         } else {
             return user = null
         }
@@ -56,6 +51,14 @@ const CartPage = (props) => {
         .then(result => setStripePromise(loadStripe(result.data.publishableKEY, console.log(result))))
         .catch(err => navigate('/serverError'));
     }, []);
+
+    useEffect(() => {
+        if (userInfo.user.data.info.phone) {
+            return setPhone(userInfo.user.data.info.phone)
+        } else {
+            return setPhone(false);
+        }
+    }, [])
     console.log(phone)
 
 /// PHONE NUMBER MODAL HANDLER ///
