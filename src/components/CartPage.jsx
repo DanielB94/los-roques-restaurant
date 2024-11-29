@@ -30,6 +30,7 @@ const CartPage = (props) => {
     const [ stripePromise, setStripePromise ] = useState(null);
 
     const [isModalVisible, SetIsModalVisible] = useState(false);
+    const [phone, setPhone] = useState(null);
     const [checkoutVisible, setCheckoutVisible] = useState(false);
     const [checkbox, setCheckbox] = useState(false);
     const [message, setMessage] = useState(null);
@@ -38,12 +39,6 @@ const CartPage = (props) => {
         axios.get(`${apiUrl}/api/stripeConfig`)
         .then(result => setStripePromise(loadStripe(result.data.publishableKEY, console.log(result))))
         .catch(err => navigate('/serverError'));
-        
-            if (userInfo) {
-                return user = userInfo.user.data.info;
-            } else {
-                return user = null
-            }
     }, []);
 
 /// PHONE NUMBER MODAL HANDLER ///
@@ -67,6 +62,13 @@ const checkboxHandler = () => {
 /// AQUI DEBE ESTAR EL PROBLEMA NO ESTOY INICIALIZANDO USER ///
     let user;
 
+    const userHandler = (() => {
+        if (userInfo) {
+            return user = userInfo.user.data.info;
+        } else {
+            return user = null
+        }
+    })();
 
     /// THIS FUNCTIONS HANDLERS ALL THE MATH LOGIC FROM THE CARTITEMS ARRAY ///
     const getSubTotal = () => {
@@ -110,7 +112,7 @@ const checkboxHandler = () => {
                 navigate('/errorPage');
                 console.log('.');
             } else {
-                if (userInfo.user.data.info.hasOwnProperty('phone')) {
+                if (userInfo.user.data.info.hasOwnProperty('phone') || phone !== null) {
                     const order = await axios.post(`${apiUrl}/api/create-order`, {
                         client: user._id,
                         client_name: user.name,
@@ -187,7 +189,7 @@ const checkboxHandler = () => {
                 {message ? <p>{message}</p> : null}
             </div> : <p>Tu carrito esta vacio</p>}
             {option !== null && checkoutVisible === true ?
-            <CheckoutForm setCheckout={setCheckoutVisible}/> :
+            <CheckoutForm phone={phone} setPhone={setPhone} setCheckoutModal={setCheckoutVisible}/> :
             null
             }
         </div>

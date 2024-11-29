@@ -6,8 +6,7 @@ import { UserContext } from '../context/UserContext';
 import { ApiUrlContext } from '../context/ApiUrlContext';
 
 const PhoneModal = (props) => {
-    const { closeModal } = props;
-    const [phone, setPhone] = useState();
+    const { closeModal, phone, setPhone } = props;
     const apiUrl  = useContext(ApiUrlContext);
     const { userInfo, setUserInfo } = useContext(UserContext);
     console.log(closeModal)
@@ -30,7 +29,6 @@ const PhoneModal = (props) => {
             .then(user => {
                 if(user) {
                     closeModal();
-                    setUserInfo(user)
                     console.log(user)
                 }
             })
