@@ -30,7 +30,7 @@ const CartPage = (props) => {
     const [ stripePromise, setStripePromise ] = useState(null);
 
     const [isModalVisible, SetIsModalVisible] = useState(false);
-    const [phone, setPhone] = useState(null);
+    const [phone, setPhone] = useState(false);
     const [checkoutVisible, setCheckoutVisible] = useState(false);
     const [checkbox, setCheckbox] = useState(false);
     const [message, setMessage] = useState(null);
@@ -54,7 +54,7 @@ const CartPage = (props) => {
         if (userInfo.user.data.info.phone) {
             return setPhone(userInfo.user.data.info.phone)
         } else {
-            return setPhone(null);
+            return setPhone(false);
         }
     }, []);
     console.log(phone)
