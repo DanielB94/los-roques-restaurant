@@ -53,6 +53,8 @@ const CartPage = (props) => {
         
         if (userInfo.user.data.info.phone) {
             return setPhone(userInfo.user.data.info.phone)
+        } else {
+            return setPhone = null
         }
     }, []);
     console.log(phone)
