@@ -45,17 +45,17 @@ const CartPage = (props) => {
             return user = null
         }
     })();
-    console.log(phone)
-
+    
     useEffect(() => {
         axios.get(`${apiUrl}/api/stripeConfig`)
         .then(result => setStripePromise(loadStripe(result.data.publishableKEY, console.log(result))))
         .catch(err => navigate('/serverError'));
-
+        
         if (userInfo.user.data.info.phone) {
             return setPhone(userInfo.user.data.info.phone)
         }
     }, []);
+    console.log(phone)
 
 /// PHONE NUMBER MODAL HANDLER ///
 const closeModal = () => {
