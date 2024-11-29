@@ -40,9 +40,6 @@ const CartPage = (props) => {
     
     const userHandler = (() => {
         if (userInfo) {
-            if (userInfo.user.data.info.phone) {
-                setPhone(userInfo.user.data.info.phone)
-            }
             return user = userInfo.user.data.info;
         } else {
             return user = null
@@ -54,6 +51,10 @@ const CartPage = (props) => {
         axios.get(`${apiUrl}/api/stripeConfig`)
         .then(result => setStripePromise(loadStripe(result.data.publishableKEY, console.log(result))))
         .catch(err => navigate('/serverError'));
+
+        if (userInfo.user.data.info.phone) {
+            setPhone(userInfo.user.data.info.phone)
+        }
     }, []);
 
 /// PHONE NUMBER MODAL HANDLER ///
