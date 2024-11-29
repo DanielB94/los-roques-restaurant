@@ -53,7 +53,7 @@ const CartPage = (props) => {
         .catch(err => navigate('/serverError'));
 
         if (userInfo.user.data.info.phone) {
-            setPhone(userInfo.user.data.info.phone)
+            return setPhone(userInfo.user.data.info.phone)
         }
     }, []);
 
