@@ -190,7 +190,7 @@ const checkboxHandler = () => {
                 {message ? <p>{message}</p> : null}
             </div> : <p>Tu carrito esta vacio</p>}
             {option !== null && checkoutVisible === true ?
-            <CheckoutForm phone={phone} setPhone={setPhone} setCheckoutModal={setCheckoutVisible}/> :
+            <CheckoutForm setCheckoutModal={setCheckoutVisible}/> :
             null
             }
         </div>
