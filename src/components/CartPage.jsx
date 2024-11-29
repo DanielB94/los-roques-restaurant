@@ -40,7 +40,7 @@ const CartPage = (props) => {
     
     const userHandler = (() => {
         if (userInfo) {
-            if (userInfo.user.data.info.hasOwnProperty('phone')) {
+            if (userInfo.user.data.info.phone) {
                 setPhone(userInfo.user.data.info.phone)
             }
             return user = userInfo.user.data.info;
