@@ -53,7 +53,7 @@ const CartPage = (props) => {
     }, []);
 
     useEffect(() => {
-        if (userInfo.user.data.info.phone) {
+        if (userInfo.user.data.info.hasOwnProperty('phone')) {
             return setPhone(userInfo.user.data.info.phone)
         } else {
             return setPhone(false);
