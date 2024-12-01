@@ -30,3 +30,9 @@ ul{
 #reward {
     color: green;
 }
+
+@media (max-width: 1150px) {
+    .cartContainer {    
+        min-height: 100vh;
+    }
+}
