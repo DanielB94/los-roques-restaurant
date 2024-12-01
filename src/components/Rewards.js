@@ -26,22 +26,22 @@ const Rewards = (props) => {
         const user = await axios.get(`${apiUrl}/api/login/success`, {withCredentials: true});
 
         if (user.data.info) {
+          setUserInfo({user});
           socket.connect();
           socket.emit('joinRoom', user.data.info._id);
         }}
-        catch(err) {
-          navigate('/unauthorized');
-        };
-      })();
-      
-      /// SET THE REWARDS POINTS OF THE USER INTO THE REWARD STATE ///
-      const rewardsApi = ( async () => {
-        try {
-          
-          const user = await axios.get(`${apiUrl}/api/rewards`, {withCredentials: true})
-          
-          setUserInfo({user})
-          setReward(user.data.user.rewards);
+      catch(err) {
+        navigate('/unauthorized');
+      };
+     })();
+
+  /// SET THE REWARDS POINTS OF THE USER INTO THE REWARD STATE ///
+     const rewardsApi = ( async () => {
+      try {
+
+      const rewardResult = await axios.get(`${apiUrl}/api/rewards`, {withCredentials: true})
+        
+      setReward(rewardResult.data.user.rewards);
 
       } catch(err) {
         navigate('/unauthorized');
