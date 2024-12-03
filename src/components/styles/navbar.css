@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     height: 80px;
     background-color: #F1F1F1;
 }
@@ -70,16 +70,13 @@
         display: inline;
         position: absolute;
         background-color: #edefee;
-        height: 100vh;
-        width: 100vw;
         padding: 20px;
-        width: 30vw;
         height: auto;
         border-radius: 16px;
     }
     .navBar ul li {
-        padding: 5px;
         font-size: 1.2rem;
+        margin-right: 0px;
     }
     .hamburguer{
         position: fixed;

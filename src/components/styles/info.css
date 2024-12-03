@@ -32,7 +32,8 @@
 }
 @media (max-width: 776px) {
     .learn {
-        width: 20vw;
+        width: 15vw;
+        height: auto;
     }
     .info img {
         width: 40%;
