@@ -38,7 +38,7 @@ useEffect(() => {
     socket.on('menuChanges', (change) => {
       setCategory(change);
     });
-},orderFromIo);
+},[orderFromIo]);
 
     /// FUNCTION TO POP A DONE ORDER FROM THE ARRAY ///
   const doneHandler = (id) => {
