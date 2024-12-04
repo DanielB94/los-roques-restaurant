@@ -33,7 +33,7 @@ useEffect(() => {
     console.log(orderFromIo);
     });
 
-  });
+  }, []);
   
   /// FUNCTION TO POP A DONE ORDER FROM THE ARRAY ///
   const doneHandler = (id) => {
@@ -74,7 +74,7 @@ useEffect(() => {
       });
     };
     categoryHandler();
-    
+
     socket.on('menuChanges', (change) => {
       setCategory(change);
     });
