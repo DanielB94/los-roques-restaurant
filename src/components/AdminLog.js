@@ -15,10 +15,6 @@ const AdminLog = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        socket.connect();
-    }, []);
     
     /// SUBMIT ADMIN HANDLER ///
     const submit = (e) => {
