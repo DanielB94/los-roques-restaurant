@@ -26,7 +26,9 @@ useEffect(() => {
   console.log(socket);
   
   socket.emit('joinRoom', 'AdminRoom');
-  
+  });
+
+useEffect(() => {
   socket.on('changes', (change) => {
     console.log(change);
     setOrderFromIo([...orderFromIo, change]);
@@ -36,7 +38,7 @@ useEffect(() => {
     socket.on('menuChanges', (change) => {
       setCategory(change);
     });
-  });
+},orderFromIo);
 
     /// FUNCTION TO POP A DONE ORDER FROM THE ARRAY ///
   const doneHandler = (id) => {
