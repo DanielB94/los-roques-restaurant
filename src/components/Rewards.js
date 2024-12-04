@@ -29,6 +29,7 @@ const Rewards = (props) => {
           setUserInfo({user});
           socket.connect();
           socket.emit('joinRoom', user.data.info._id);
+          console.log(socket);
         }}
       catch(err) {
         navigate('/unauthorized');

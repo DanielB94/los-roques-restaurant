@@ -25,10 +25,11 @@ const AdminLog = () => {
                 localStorage.setItem('token', user.data.jwt.token);
                 setUserInfo({user});        
                 navigate(`/eljalabolas`);
+                console.log(socket);
             })
             .catch(err => {
                 if (err) {
-                    setError(err.response.data.msg);
+                    setError(err);
                 } else {
                     setError('Something went wrong in the server');
                 }
