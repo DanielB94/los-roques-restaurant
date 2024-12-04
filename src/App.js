@@ -26,6 +26,7 @@ function App() {
   const [option, setOption] = useState(null);
   
   socket.on('connect', () => console.log('Connected to server'));
+  console.log(socket)
 
   function Item(name, price, mods, image, category, reward, priceInCents, quantity) {
     this.name = name
