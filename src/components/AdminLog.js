@@ -19,7 +19,7 @@ const AdminLog = () => {
     /// SUBMIT ADMIN HANDLER ///
     const submit = (e) => {
         e.preventDefault();
-        axios.post(`${apiUrl}/adminApi/adminLog`, { email: email, password: password }, {withCredentials:true})
+        axios.post(`${apiUrl}/adminApi/adminLog`, { email: email, password: password })
             .then((user) => {
                 socket.connect();
                 localStorage.setItem('token', user.data.jwt.token);
