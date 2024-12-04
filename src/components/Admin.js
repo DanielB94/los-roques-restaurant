@@ -12,29 +12,48 @@ import { ApiUrlContext } from '../context/ApiUrlContext';
 
 
 const Admin = (props) => {
-const apiUrl  = useContext(ApiUrlContext);
-const [category, setCategory] = useContext(MenuContext);
-const [orders, setOrders] = useState([]);
-const [orderFromIo, setOrderFromIo] = useState([]);
-const [value, setValue] = useState(null);
-const {error, setError} = useContext(ErrorContext);
-const navigate = useNavigate();
-
-
-useEffect(() => {
-  socket.connect();
-  console.log(socket);
+  const apiUrl  = useContext(ApiUrlContext);
+  const [category, setCategory] = useContext(MenuContext);
+  const [orders, setOrders] = useState([]);
+  const [orderFromIo, setOrderFromIo] = useState([]);
+  const [value, setValue] = useState(null);
+  const {error, setError} = useContext(ErrorContext);
+  const navigate = useNavigate();
   
-  socket.emit('joinRoom', 'AdminRoom');
   
-  socket.on('changes', (change) => {
-    console.log(change);
-    setOrderFromIo([...orderFromIo, change]);
-    console.log(orderFromIo);
+  useEffect(() => {
+    socket.connect();
+    console.log(socket);
+    
+    socket.emit('joinRoom', 'AdminRoom');
+    
+    
+  }, []);
+  
+  useEffect(() => {
+    const categoryHandler = (name) => {
+      axios.get(`${apiUrl}/api/menu-items`)
+      .then((result) => {
+        setCategory(result.data);
+        console.log(category)
+      })
+      .catch(err =>  {
+        console.log(err);
+      });
+    };
+    categoryHandler();
+    
+    socket.on('changes', (change) => {
+      console.log(change);
+      setOrderFromIo([...orderFromIo, change]);
+      console.log(orderFromIo);
     });
 
+    socket.on('menuChanges', (change) => {
+      setCategory(change);
+    });
   }, [orderFromIo]);
-  
+
   /// FUNCTION TO POP A DONE ORDER FROM THE ARRAY ///
   const doneHandler = (id) => {
     axios.post(`${apiUrl}/adminApi/get-order`, {id}, {
@@ -62,23 +81,6 @@ useEffect(() => {
     })
   }
   
-  useEffect(() => {
-    const categoryHandler = (name) => {
-      axios.get(`${apiUrl}/api/menu-items`)
-      .then((result) => {
-        setCategory(result.data);
-        console.log(category)
-      })
-      .catch(err =>  {
-        console.log(err);
-      });
-    };
-    categoryHandler();
-
-    socket.on('menuChanges', (change) => {
-      setCategory(change);
-    });
-  }, []);
 
   return (
     <div className='adminContainer'>
