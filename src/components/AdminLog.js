@@ -17,9 +17,9 @@ const AdminLog = () => {
     const navigate = useNavigate();
     
     /// SUBMIT ADMIN HANDLER ///
-    const submit = async (e) => {
+    const submit = (e) => {
         e.preventDefault();
-        axios.post(`${apiUrl}/adminApi/adminLog`, { email: email, password: password })
+        axios.post(`${apiUrl}/adminApi/adminLog`, { email: email, password: password }, {withCredentials:true})
             .then((user) => {
                 socket.connect();
                 localStorage.setItem('token', user.data.jwt.token);
@@ -27,7 +27,7 @@ const AdminLog = () => {
                 navigate(`/eljalabolas`);
             })
             .catch(err => {
-                if (err.response.data.msg) {
+                if (err) {
                     setError(err.response.data.msg);
                 } else {
                     setError('Something went wrong in the server');
