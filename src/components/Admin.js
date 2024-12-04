@@ -26,21 +26,16 @@ useEffect(() => {
   console.log(socket);
   
   socket.emit('joinRoom', 'AdminRoom');
-  });
-
-useEffect(() => {
+  
   socket.on('changes', (change) => {
     console.log(change);
     setOrderFromIo([...orderFromIo, change]);
     console.log(orderFromIo);
     });
 
-    socket.on('menuChanges', (change) => {
-      setCategory(change);
-    });
-},[orderFromIo]);
-
-    /// FUNCTION TO POP A DONE ORDER FROM THE ARRAY ///
+  });
+  
+  /// FUNCTION TO POP A DONE ORDER FROM THE ARRAY ///
   const doneHandler = (id) => {
     axios.post(`${apiUrl}/adminApi/get-order`, {id}, {
       headers : {
@@ -53,32 +48,36 @@ useEffect(() => {
     })
     .catch(err => navigate('/errorPage'));
   }
-
+  
   /// FUNCTION TO CHANGE THE STATUS OF MENU ITEMS ///
   const statusHandler =  (id, status) => {
-      axios.post(`${apiUrl}/adminApi/update-status`, {id, status}, { headers : {
-        Authorization: `${localStorage.getItem('token')}`
-      } })
-      .then(result => {
-        console.log(result);
-      })
-      .catch(error=>  {
+    axios.post(`${apiUrl}/adminApi/update-status`, {id, status}, { headers : {
+      Authorization: `${localStorage.getItem('token')}`
+    } })
+    .then(result => {
+      console.log(result);
+    })
+    .catch(error=>  {
       console.log(error);
     })
   }
-
+  
   useEffect(() => {
     const categoryHandler = (name) => {
       axios.get(`${apiUrl}/api/menu-items`)
       .then((result) => {
-          setCategory(result.data);
-          console.log(category)
+        setCategory(result.data);
+        console.log(category)
       })
       .catch(err =>  {
         console.log(err);
-    });
+      });
     };
     categoryHandler();
+    
+    socket.on('menuChanges', (change) => {
+      setCategory(change);
+    });
   }, []);
 
   return (
