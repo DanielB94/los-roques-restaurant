@@ -23,6 +23,7 @@ const navigate = useNavigate();
 
 useEffect(() => {
   socket.connect();
+  console.log(socket);
   
   socket.emit('joinRoom', 'AdminRoom');
   
