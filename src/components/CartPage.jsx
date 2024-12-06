@@ -51,8 +51,6 @@ const CartPage = (props) => {
             axios.get(`${apiUrl}/api/stripeConfig`)
             .then(result => setStripePromise(loadStripe(result.data.publishableKEY, console.log(result))))
             .catch(err => navigate('/serverError'));
-        } else {
-            return null;
         }
     }, []);
 
