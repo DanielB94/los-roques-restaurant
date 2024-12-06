@@ -64,7 +64,7 @@ const CartPage = (props) => {
                 return setPhone(null);
             }
         }
-    }, [])
+    }, [userInfo]);
     console.log(phone)
 
 /// PHONE NUMBER MODAL HANDLER ///
