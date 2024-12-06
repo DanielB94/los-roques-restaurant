@@ -63,8 +63,6 @@ const CartPage = (props) => {
             } else {
                 return setPhone(null);
             }
-        } else {
-            return null;
         }
     }, [])
     console.log(phone)
