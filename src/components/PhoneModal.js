@@ -4,12 +4,14 @@ import './styles/phoneModal.css';
 import { Placeholder } from 'phosphor-react';
 import { UserContext } from '../context/UserContext';
 import { ApiUrlContext } from '../context/ApiUrlContext';
+import { useNavigate } from 'react-router-dom';
 
 const PhoneModal = (props) => {
-    const { closeModal, phone, setPhone } = props;
+    const { closeModal, phone, setPhone, message} = props;
     const apiUrl  = useContext(ApiUrlContext);
     const { userInfo, setUserInfo } = useContext(UserContext);
     console.log(closeModal)
+    const navigate = useNavigate();
     
     /// KNOW IF THE USER IS AUTHENTICATED LOGIC ///
     let user;
@@ -43,6 +45,7 @@ const PhoneModal = (props) => {
       <form onSubmit={phoneHandler} className='phoneForm'>
         <input type='tel' name="phone" onChange={(e) => setPhone(e.target.value)} placeholder='(000) 000-0000' required/>
         <button className='cta'>Agregar</button>
+        {message ? {message} : null}
       </form>
       </div>
     </div>

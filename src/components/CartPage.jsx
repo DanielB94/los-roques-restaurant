@@ -68,7 +68,11 @@ const CartPage = (props) => {
 /// PHONE NUMBER MODAL HANDLER ///
 const closeModal = () => {
     if (isModalVisible) {
-        SetIsModalVisible(false);
+        if (phone.length === 10) {
+            SetIsModalVisible(false);
+        } else {
+            setMessage('Inserte un numero de telefono valido');
+        }
     }
 };
 
@@ -166,7 +170,7 @@ const checkboxHandler = () => {
   return (
     <div className='cartContainer'>
 
-        {isModalVisible ? <PhoneModal closeModal={closeModal} phone={phone} setPhone={setPhone} /> : null}
+        {isModalVisible ? <PhoneModal closeModal={closeModal} phone={phone} setPhone={setPhone} message={message} /> : null}
       <h2 id='h2'>Su carro de compras</h2>
 
         {cartItems.map((cartItem) => {
@@ -197,7 +201,6 @@ const checkboxHandler = () => {
                 <p>Total: ${total}</p>
                 <p id='reward'>Recompensas por esta compra ${totalItemsRewards}</p>
                 <button className='cta' onClick={orderHandler}>Comprar</button>
-                {message ? <p>{message}</p> : null}
             </div> : <p>Tu carrito esta vacio</p>}
             {option !== null && checkoutVisible === true ?
             <CheckoutForm setCheckoutModal={setCheckoutVisible}/> :
