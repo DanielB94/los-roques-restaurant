@@ -2,3 +2,6 @@
     position: absolute;
     background-color: white;
 }
+.checkout .x {
+    margin-right: -5px;
+}
