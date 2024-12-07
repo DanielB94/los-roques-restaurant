@@ -203,7 +203,7 @@ const checkboxHandler = () => {
                 <button className='cta' onClick={orderHandler}>Comprar</button>
             </div> : <p>Tu carrito esta vacio</p>}
             {option !== null && checkoutVisible === true ?
-            <CheckoutForm setCheckoutModal={setCheckoutVisible}/> :
+            <CheckoutForm setCheckoutVisible={setCheckoutVisible}/> :
             null
             }
         </div>
