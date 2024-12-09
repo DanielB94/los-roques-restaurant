@@ -45,7 +45,7 @@ const Admin = (props) => {
     
     socket.on('changes', (change) => {
       console.log(change);
-      setOrderFromIo(change);
+      setOrderFromIo([...orderFromIo, change]);
       console.log(orderFromIo);
     });
 
