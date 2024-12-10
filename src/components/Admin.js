@@ -83,7 +83,7 @@ const Admin = (props) => {
   
   /// FUNCTION TO GET ORDERS IN CASE SOMETHING GOES WRONG ///
   const backupHandler = () => {
-    axios.get(`${apiUrl}/adminApi/order-status`, { headers: { Authorization: `${localStorage.getItem('token')}`}})
+    axios.get(`${apiUrl}/adminApi/get-order`, { headers: { Authorization: `${localStorage.getItem('token')}`}})
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }
