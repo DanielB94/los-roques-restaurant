@@ -93,7 +93,7 @@ const Admin = (props) => {
       <div className='adminOrdersContainer'>
         <div className='status'>
           <div className='green'></div>
-          <button onClick={() => backupHandler}>Ordenes</button>
+          <button onClick={() => backupHandler()}>Ordenes</button>
         </div>
         {orderFromIo.length === 0 ? null : orderFromIo.map(item => {
           return <div className='adminOrderCard'>
