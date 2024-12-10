@@ -81,10 +81,20 @@ const Admin = (props) => {
     })
   }
   
+  /// FUNCTION TO GET ORDERS IN CASE SOMETHING GOES WRONG ///
+  const backupHandler = () => {
+    axios.get(`${apiUrl}/adminApi/order-status`)
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+  }
 
   return (
     <div className='adminContainer'>
       <div className='adminOrdersContainer'>
+        <div className='status'>
+          <div className='green'></div>
+          <button onClick={() => backupHandler}>Ordenes</button>
+        </div>
         {orderFromIo.length === 0 ? null : orderFromIo.map(item => {
           return <div className='adminOrderCard'>
             <h1>{item.client_name}</h1>
