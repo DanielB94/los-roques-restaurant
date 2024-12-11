@@ -14,10 +14,12 @@ import { ApiUrlContext } from '../context/ApiUrlContext';
 const Admin = (props) => {
   const apiUrl  = useContext(ApiUrlContext);
   const [category, setCategory] = useContext(MenuContext);
+  const {error, setError} = useContext(ErrorContext);
   const [orders, setOrders] = useState([]);
   const [orderFromIo, setOrderFromIo] = useState([]);
   const [value, setValue] = useState(null);
-  const {error, setError} = useContext(ErrorContext);
+  const [status, setStatus] = useState('.red');
+
   const navigate = useNavigate();
   
   
@@ -27,8 +29,16 @@ const Admin = (props) => {
     
     socket.emit('joinRoom', 'AdminRoom');
     
-    
   }, []);
+
+  useEffect(() => {
+
+    if (socket.connected === true) {
+      setStatus('green');
+    } else {
+      setStatus('red');
+    }
+  }, [socket]);
   
   useEffect(() => {
     const categoryHandler = (name) => {
@@ -93,11 +103,11 @@ const Admin = (props) => {
 
   return (
     <div className='adminContainer'>
+      <div className='status'>
+        <div className={status}></div>
+        <button onClick={() => backupHandler()}>Ordenes</button>
+      </div>
       <div className='adminOrdersContainer'>
-        <div className='status'>
-          <div className='green'></div>
-          <button onClick={() => backupHandler()}>Ordenes</button>
-        </div>
         {orderFromIo.length === 0 ? null : orderFromIo.map(item => {
           return <div className='adminOrderCard'>
             <h1>{item.client_name}</h1>
