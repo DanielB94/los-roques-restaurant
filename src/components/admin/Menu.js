@@ -25,16 +25,16 @@ const Menu = () => {
 
         e.preventDefault();
         axios.post(`${apiUrl}/adminApi/create-menu-item`, {
-            headers : {
-                Authorization: `${localStorage.getItem('token')}`
-              }
-        }, {
             name: name,
             description: description,
             category: category,
             price: price,
             priceInCents: priceInCents,
             reward: reward,
+        },{
+            headers : {
+                Authorization: `${localStorage.getItem('token')}`
+              }
         })
         .then(result => {
             setMenuItem('Item agregado');
