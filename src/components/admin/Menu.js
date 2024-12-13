@@ -12,9 +12,7 @@ const Menu = () => {
     const [description, setDescription] = useState(null);
     const [category, setCategory] = useState(null);
     const [price, setPrice] = useState(null);
-    const [priceInCents, setPriceInCents] = useState(price * 1000);
     const [reward, setReward] = useState(null);
-    const [picture, setPicture] = useState(null);
 
     const formhandler = (e) => {
 
@@ -24,7 +22,7 @@ const Menu = () => {
             description: description,
             category: category,
             price: price,
-            priceInCents: price * 1000,
+            priceInCents: price * 100,
             reward: reward,
         },{
             headers : {
