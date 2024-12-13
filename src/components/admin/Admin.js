@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { MenuContext } from '../../context/MenuContext';
 import { ErrorContext } from '../../context/ErrorContext';
 import { socket } from '../../socket';
-import check from '../../assets/check.png';
-import remove from '../../assets/remove.png';
 import { ApiUrlContext } from '../../context/ApiUrlContext';
 
 
@@ -41,17 +39,7 @@ const Admin = (props) => {
   }, [socket]);
   
   useEffect(() => {
-    const categoryHandler = (name) => {
-      axios.get(`${apiUrl}/api/menu-items`)
-      .then((result) => {
-        setCategory(result.data);
-        console.log(category)
-      })
-      .catch(err =>  {
-        console.log(err);
-      });
-    };
-    categoryHandler();
+    
     
     socket.on('changes', (change) => {
       console.log(change);
@@ -59,9 +47,6 @@ const Admin = (props) => {
       console.log(orderFromIo);
     });
 
-    socket.on('menuChanges', (change) => {
-      setCategory(change);
-    });
   }, [orderFromIo]);
 
   /// FUNCTION TO POP A DONE ORDER FROM THE ARRAY ///
@@ -78,19 +63,6 @@ const Admin = (props) => {
     .catch(err => navigate('/errorPage'));
   }
   
-  /// FUNCTION TO CHANGE THE STATUS OF MENU ITEMS ///
-  const statusHandler =  (id, status) => {
-    axios.post(`${apiUrl}/adminApi/update-status`, {id, status}, { headers : {
-      Authorization: `${localStorage.getItem('token')}`
-    } })
-    .then(result => {
-      console.log(result);
-    })
-    .catch(error=>  {
-      console.log(error);
-    })
-  }
-  
   /// FUNCTION TO GET ORDERS IN CASE SOMETHING GOES WRONG ///
   const backupHandler = () => {
     axios.get(`${apiUrl}/adminApi/get-order`, { headers: { Authorization: `${localStorage.getItem('token')}`}})
@@ -98,7 +70,7 @@ const Admin = (props) => {
       if (result.data.length !== 0) {
       setOrderFromIo(result.data);
     }})
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
   }
 
   return (
@@ -128,15 +100,6 @@ const Admin = (props) => {
             <button onClick={() => doneHandler(item._id)}>Listo</button>
           </div>
         })}
-      </div>
-      <div>
-        {category !== null  ? category.map(item => {
-          return <div className="menuItems">
-                  <p className="name">{item.name} - {JSON.stringify(item.available)}</p>
-                  <button className='available' onClick={() => statusHandler(item._id, true)}><img src={check} alt="Disponible" /></button>
-                  <button className='available' onClick={() => statusHandler(item._id, false)}><img src={remove} alt="No disponible" /></button>
-                 </div>
-        }) : null}
       </div>
     </div>
   )
