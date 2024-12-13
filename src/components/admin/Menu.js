@@ -23,9 +23,6 @@ const Menu = () => {
 
     const formhandler = (e) => {
 
-        const formData = new FormData();
-        formData.append('file', picture)
-
         e.preventDefault();
         axios.post(`${apiUrl}/adminApi/create-menu-item`, {
             headers : {
@@ -38,7 +35,6 @@ const Menu = () => {
             price: price,
             priceInCents: priceInCents,
             reward: reward,
-            formData
         })
         .then(result => {
             setMenuItem('Item agregado');
