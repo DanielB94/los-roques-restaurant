@@ -7,16 +7,17 @@ import Register from './Register';
 import CartPage from './CartPage';
 import Rewards from './Rewards';
 import Password from './Password';
-import Admin from './Admin';
+import Admin from './admin/Admin';
 import Succeess from './Succeess';
 import Failed from './Failed';
 import Unauthorized from './unauthorized';
 import ErrorPage from './ErrorPage';
-import AdminLog from './AdminLog';
+import AdminLog from './admin/AdminLog';
 import ServerError from './ServerError';
 import OrderDetail from './OrderDetail';
 import CookieConsent from "react-cookie-consent";
 import CheckoutForm from './CheckoutForm';
+import Menu from './admin/Menu';
 
 const RouteSwitch = (props) => {
     const {cartItems, setCartItems, handlerAddButton, fillUp, getColor, progress} = props;
@@ -25,6 +26,7 @@ const RouteSwitch = (props) => {
       <div className="content">
         <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
         <Routes>
+          <Route path='adminMenu' element={<Menu />}/>
           <Route path='checkout' element={<CheckoutForm />}/>
           <Route path='adminLog' element={<AdminLog />} />
           <Route path='errorPage' element={<ErrorPage />} />
