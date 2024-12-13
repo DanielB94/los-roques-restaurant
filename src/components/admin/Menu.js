@@ -58,8 +58,8 @@ const Menu = () => {
         <input type="number" id='price' name='price' onChange={(e) => setPrice(e.target.value)}/>
         <label htmlFor="reward">reward</label>
         <input type="number" id='reward' name='reward' onChange={(e) => setReward(e.target.value)} required/>
-      </form>
         <button className='Btn'>Agregar</button>
+      </form>
       {menuItem ? menuItem : null}
     </div>
   )
