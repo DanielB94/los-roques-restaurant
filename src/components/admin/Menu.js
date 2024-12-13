@@ -16,11 +16,6 @@ const Menu = () => {
     const [reward, setReward] = useState(null);
     const [picture, setPicture] = useState(null);
 
-    const handlePicture = (event) => {
-        setPicture(event.target.value[0]);
-    };
-
-
     const formhandler = (e) => {
 
         e.preventDefault();
@@ -29,7 +24,7 @@ const Menu = () => {
             description: description,
             category: category,
             price: price,
-            priceInCents: priceInCents,
+            priceInCents: price * 1000,
             reward: reward,
         },{
             headers : {
