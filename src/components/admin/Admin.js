@@ -68,10 +68,7 @@ const Admin = (props) => {
     axios.get(`${apiUrl}/adminApi/get-order`, { headers: { Authorization: `${localStorage.getItem('token')}`}})
     .then(result => {
       if (result.data.length !== 0) {
-        let orders = result.data.map(order => {
-
-          setOrderFromIo([...orderFromIo, order]);
-        })
+      setOrderFromIo(result.data);
     }})
     .catch(err => console.log(err));
   }
