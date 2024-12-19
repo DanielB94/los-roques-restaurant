@@ -70,7 +70,7 @@ const Admin = (props) => {
       if (result.data.length !== 0) {
         let orders = result.data.map(order => {
 
-          setOrderFromIo([orderFromIo, order]);
+          setOrderFromIo([...orderFromIo, order]);
         })
     }})
     .catch(err => console.log(err));
