@@ -17,18 +17,15 @@ import ServerError from './ServerError';
 import OrderDetail from './OrderDetail';
 import CookieConsent from "react-cookie-consent";
 import CheckoutForm from './CheckoutForm';
-import AdminMenu from './admin/adminMenu';
+import AdminMenu from './admin/AdminMenu';
 
 const RouteSwitch = (props) => {
     const {cartItems, setCartItems, handlerAddButton, fillUp, getColor, progress} = props;
   return (
-    <div>
       <div className="content">
         <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
         <Routes>
           <Route path='checkout' element={<CheckoutForm />}/>
-          <Route path='adminLog' element={<AdminLog />} />
-          <Route path='menu-handler' element={<AdminMenu />} />
           <Route path='errorPage' element={<ErrorPage />} />
           <Route path='unauthorized' element={<Unauthorized />} />
           <Route path='failed' element={<Failed />} />
@@ -39,13 +36,12 @@ const RouteSwitch = (props) => {
           <Route path='shoppingCart' element={<CartPage cartItems={cartItems} setCartItems={setCartItems}/>} />
           <Route path='rewards' element={<Rewards getColor={getColor} progress={progress} />} progress={progress} />
           <Route path='password' element={<Password />} />
-          <Route path='eljalabolas' element={<Admin />} />
           <Route path='serverError' element={<ServerError />} />
           <Route path='order-details/:id' element={<OrderDetail />} />
+          <Route path='adminLog' element={<AdminLog />} />
           <Route path='/' element={<HomePage />} />
         </Routes>
       </div>
-    </div>
   )
 }
 

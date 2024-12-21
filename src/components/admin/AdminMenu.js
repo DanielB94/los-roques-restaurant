@@ -26,7 +26,7 @@ const AdminMenu = () => {
           socket.on('menuChanges', (change) => {
             setCategory(change);
           });
-    });
+    }, []);
 
       /// FUNCTION TO CHANGE THE STATUS OF MENU ITEMS ///
   const statusHandler =  (id, status) => {

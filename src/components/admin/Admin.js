@@ -7,12 +7,14 @@ import { MenuContext } from '../../context/MenuContext';
 import { ErrorContext } from '../../context/ErrorContext';
 import { socket } from '../../socket';
 import { ApiUrlContext } from '../../context/ApiUrlContext';
+import { AdminContext } from '../../context/AdminContext';
 
 
 const Admin = (props) => {
   const apiUrl  = useContext(ApiUrlContext);
   const [category, setCategory] = useContext(MenuContext);
   const {error, setError} = useContext(ErrorContext);
+  const {admin, setAdmin} = useContext(AdminContext);
   const [orders, setOrders] = useState([]);
   const [orderFromIo, setOrderFromIo] = useState([]);
   const [value, setValue] = useState(null);
@@ -26,6 +28,8 @@ const Admin = (props) => {
     console.log(socket);
     
     socket.emit('joinRoom', 'AdminRoom');
+    setAdmin(true);
+    console.log(admin);
     
   }, []);
 

@@ -13,6 +13,9 @@ import { RewardContext } from './context/RewardContext';
 import { ApiUrlContext } from './context/ApiUrlContext';
 import { socket } from './socket';
 import { OptionContext } from './context/OptionContext';
+import AdminRouter from './components/admin/AdminRouter';
+import { AdminContext } from './context/AdminContext';
+import AdminNavbar from './components/admin/AdminNavbar';
 
 
 function App() {
@@ -24,6 +27,11 @@ function App() {
   const [error, setError] = useState(null);
   const [reward, setReward] = useState(null);
   const [option, setOption] = useState(null);
+  const [admin, setAdmin] = useState(null);
+
+  useEffect(() => {
+
+  }, [admin]);
 
   function Item(name, price, mods, image, category, reward, priceInCents, quantity) {
     this.name = name
@@ -51,8 +59,17 @@ function App() {
               <ErrorContext.Provider value={{error, setError}}>
                 <RewardContext.Provider value={{reward, setReward}}>
                   <OptionContext.Provider value={{option, setOption}}>
-              <NavBar cartItems={cartItems}/>
-              <RouteSwitch cartItems={cartItems} setCartItems={setCartItems} handlerAddButton={handlerAddButton} orders={orders}/>
+                    <AdminContext.Provider value={{admin, setAdmin}} >
+                      {admin ? <div>
+                        <AdminNavbar />
+                        <AdminRouter />
+                        </div> :
+                      <div>
+                        <NavBar cartItems={cartItems}/>
+                        <RouteSwitch cartItems={cartItems} setCartItems={setCartItems} handlerAddButton={handlerAddButton} orders={orders}/>
+                        <Footer />
+                      </div>}
+                  </AdminContext.Provider>
                 </OptionContext.Provider>
               </RewardContext.Provider>
             </ErrorContext.Provider>
@@ -60,7 +77,6 @@ function App() {
           </UserContext.Provider>
           </OrderContext.Provider>
         </ApiUrlContext.Provider>
-      <Footer />
     </Router>
   );
 }

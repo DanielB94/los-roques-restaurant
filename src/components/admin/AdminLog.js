@@ -7,10 +7,12 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { socket } from '../../socket';
 import { ApiUrlContext } from '../../context/ApiUrlContext';
+import { AdminContext } from '../../context/AdminContext';
 
 const AdminLog = () => {
     const apiUrl  = useContext(ApiUrlContext);
     const { userInfo, setUserInfo } = useContext(UserContext);
+    const {admin, setAdmin} = useContext(AdminContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
@@ -23,7 +25,8 @@ const AdminLog = () => {
             .then((user) => {
                 socket.connect();
                 localStorage.setItem('token', user.data.jwt.token);
-                setUserInfo({user});        
+                setUserInfo({user});      
+                setAdmin(true);  
                 navigate(`/eljalabolas`);
                 console.log(socket);
             })
