@@ -31,22 +31,6 @@ function App() {
   const [admin, setAdmin] = useState(null);
   const [storeStatus, setStoreStatus] = useState(null);
 
-  const date = new Date();
-  const hour = date.getHours();
-  console.log(hour);
-
-  
-  useEffect(() => {
-    if (hour >= 18 && hour <= 24) {
-      console.log('Abierto');
-      setStoreStatus(true);
-    } else {
-      console.log('Cerrado');
-      setStoreStatus(null);
-    }
-
-  }, []);
-
   function Item(name, price, mods, image, category, reward, priceInCents, quantity) {
     this.name = name
     this.price = price

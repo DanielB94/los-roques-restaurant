@@ -6,12 +6,15 @@ import { MenuContext } from '../context/MenuContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext';
+import { OpenContext } from '../context/OpenContext';
+import StoreStatus from './StoreStatus';
 
 const CardPage = (props) => {
     const { handlerAddButton, cartItems, fillUp } = props;
     const [isOpen, setIsOpen] = useState(false);
     const [category, setCategory] = useContext(MenuContext);
     const { userInfo, setUserInfo } = useContext(UserContext);
+    const [storeStatus, setStoreStatus] = useContext(OpenContext);
 
     const navigate = useNavigate();
 
@@ -21,10 +24,23 @@ const CardPage = (props) => {
     };
 
     const redirectButton = () => {
-        navigate('/login');
+        const date = new Date();
+        const hour = date.getHours();
+        console.log(hour);
+      
+        
+        if (hour >= 18 && hour <= 24) {
+            console.log('Abierto');
+            navigate('/login');
+            setStoreStatus(true);
+        } else {
+            console.log('Cerrado');
+            setStoreStatus(null);
+          }
     }
 
   return <div>
+    {!storeStatus ? <StoreStatus /> : null}
             {category.map((item) => {
                 return (
                     <div className='cardPageContainer' key={item._id}>
