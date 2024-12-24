@@ -16,6 +16,7 @@ import { OptionContext } from './context/OptionContext';
 import AdminRouter from './components/admin/AdminRouter';
 import { AdminContext } from './context/AdminContext';
 import AdminNavbar from './components/admin/AdminNavbar';
+import { OpenContext } from './context/OpenContext';
 
 
 function App() {
@@ -28,10 +29,23 @@ function App() {
   const [reward, setReward] = useState(null);
   const [option, setOption] = useState(null);
   const [admin, setAdmin] = useState(null);
+  const [storeStatus, setStoreStatus] = useState(null);
 
+  const date = new Date();
+  const hour = date.getHours();
+  console.log(hour);
+
+  
   useEffect(() => {
+    if (hour >= 18 && hour <= 24) {
+      console.log('Abierto');
+      setStoreStatus(true);
+    } else {
+      console.log('Cerrado');
+      setStoreStatus(null);
+    }
 
-  }, [admin]);
+  }, []);
 
   function Item(name, price, mods, image, category, reward, priceInCents, quantity) {
     this.name = name
@@ -45,48 +59,41 @@ function App() {
   }
 
   const handlerAddButton = (product, mods) => {
-    
-    const date = new Date();
-  const hour = date.getHours();
-  console.log(hour);
 
-  if (hour >= 18 && hour <= 24) {
-    console.log('Abierto');
     const newItem = new Item(product.name, product.price, mods, product.image, product.category, product.reward, product.priceInCents);
     setCartItems([...cartItems, newItem]);
-  } else {
-    console.log('Cerrado');
-  }
-
+  
   }
 
   return (
     <Router>
-      <ApiUrlContext.Provider value={apiUrl}>
-        <OrderContext.Provider value={{orders, setOrders}}>
-          <UserContext.Provider value={{ userInfo, setUserInfo}}>
-            <MenuContext.Provider value={[category, setCategory]}>
-              <ErrorContext.Provider value={{error, setError}}>
-                <RewardContext.Provider value={{reward, setReward}}>
-                  <OptionContext.Provider value={{option, setOption}}>
-                    <AdminContext.Provider value={{admin, setAdmin}} >
-                      {admin ? <div>
-                        <AdminNavbar />
-                        <AdminRouter />
-                        </div> :
-                      <div>
-                        <NavBar cartItems={cartItems}/>
-                        <RouteSwitch cartItems={cartItems} setCartItems={setCartItems} handlerAddButton={handlerAddButton} orders={orders}/>
-                        <Footer />
-                      </div>}
-                  </AdminContext.Provider>
-                </OptionContext.Provider>
-              </RewardContext.Provider>
-            </ErrorContext.Provider>
-            </MenuContext.Provider>
-          </UserContext.Provider>
+      <OpenContext.Provider value={{storeStatus, setStoreStatus}}>
+        <ApiUrlContext.Provider value={apiUrl}>
+          <OrderContext.Provider value={{orders, setOrders}}>
+            <UserContext.Provider value={{ userInfo, setUserInfo}}>
+              <MenuContext.Provider value={[category, setCategory]}>
+                <ErrorContext.Provider value={{error, setError}}>
+                  <RewardContext.Provider value={{reward, setReward}}>
+                    <OptionContext.Provider value={{option, setOption}}>
+                      <AdminContext.Provider value={{admin, setAdmin}} >
+                        {admin ? <div>
+                          <AdminNavbar />
+                          <AdminRouter />
+                          </div> :
+                        <div>
+                          <NavBar cartItems={cartItems}/>
+                          <RouteSwitch cartItems={cartItems} setCartItems={setCartItems} handlerAddButton={handlerAddButton} orders={orders}/>
+                          <Footer />
+                        </div>}
+                      </AdminContext.Provider>
+                    </OptionContext.Provider>
+                  </RewardContext.Provider>
+                </ErrorContext.Provider>
+              </MenuContext.Provider>
+            </UserContext.Provider>
           </OrderContext.Provider>
         </ApiUrlContext.Provider>
+      </OpenContext.Provider>
     </Router>
   );
 }

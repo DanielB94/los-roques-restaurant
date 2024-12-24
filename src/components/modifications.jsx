@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './styles/mods.css';
 import { X } from 'lucide-react';
+import { OpenContext } from '../context/OpenContext';
+import StoreStatus from './StoreStatus';
 
 const Modifications = (props) => {
+  const {storeStatus, setStoreStatus} = useContext(OpenContext);
     const { isOpen, setIsOpen, handlerAddButton, product, cartItems, fillUp } = props;
     const [ mods, setMods ] = useState([]);
 
@@ -47,7 +50,7 @@ const Modifications = (props) => {
                   <input type="checkbox" name="No pan" id="bread" className="checkboxs" onChange={handleCheckboxChange}/>
                 </label>
               </form>
-                <button className="done cta" onClick={() => {handlerAddButton(product, mods); setIsOpen(false)}}>Agregar</button>
+                {storeStatus ? <button className="done cta" onClick={() => {handlerAddButton(product, mods); setIsOpen(false)}}>Agregar</button> : <StoreStatus />};
             </div>
           )
 }
