@@ -14,7 +14,7 @@ const CardPage = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [category, setCategory] = useContext(MenuContext);
     const { userInfo, setUserInfo } = useContext(UserContext);
-    const [storeStatus, setStoreStatus] = useContext(OpenContext);
+    const {storeStatus, setStoreStatus} = useContext(OpenContext);
 
     const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ const CardPage = (props) => {
             setStoreStatus(true);
         } else {
             console.log('Cerrado');
-            setStoreStatus(null);
+            setStoreStatus(false);
           }
     }
 
