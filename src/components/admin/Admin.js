@@ -22,7 +22,6 @@ const Admin = (props) => {
 
   const navigate = useNavigate();
   
-  
   useEffect(() => {
     socket.connect();
     console.log(socket);

@@ -45,9 +45,19 @@ function App() {
   }
 
   const handlerAddButton = (product, mods) => {
+    
+    const date = new Date();
+  const hour = date.getHours();
+  console.log(hour);
 
+  if (hour >= 18 && hour <= 24) {
+    console.log('Abierto');
     const newItem = new Item(product.name, product.price, mods, product.image, product.category, product.reward, product.priceInCents);
     setCartItems([...cartItems, newItem]);
+  } else {
+    console.log('Cerrado');
+  }
+
   }
 
   return (
