@@ -1,9 +1,21 @@
-import React from 'react'
+import React from 'react';
+import './styles/storeStatus.css';
+import { useContext } from 'react';
+import { OpenContext } from '../context/OpenContext';
 
 const StoreStatus = () => {
+
+  const { storeStatus, setStoreStatus } = useContext(OpenContext);
+  
+  const statusHandler = () => {
+    setStoreStatus(null);
+  }
   return (
-    <div>
-      <h1>El horario para hacer pedidos es de 6:00pm a 12:00am</h1> <p>Por consiguiente no podras agregar platos al carrito de compras, te invitamos a ver nuestro menu</p>
+    <div className='statusContainer'>
+        <div className='storeTextContainer'>
+            <h1>El horario para ordenar es 6:00pm a 12:00am</h1> <p>No podras agregar platillos al carrito de compras fuera de ese horario pero te invitamos a ver nuestro menu </p>
+            <button className='cta' onClick={() => statusHandler()}>Aceptar</button>
+      </div>
     </div>
   )
 }

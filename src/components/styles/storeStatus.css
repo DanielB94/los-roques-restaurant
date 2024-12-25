@@ -1,0 +1,29 @@
+.statusContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.479);
+    height: 89vh;
+    width: 100vw;
+}
+.storeTextContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+}
+.storeTextContainer h1 {
+    font-size: 2rem;
+}
+.storeTextContainer p {
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+.storeTextContainer button {
+    margin-top: 10px;
+}

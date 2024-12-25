@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext';
 import { OpenContext } from '../context/OpenContext';
-import StoreStatus from './StoreStatus';
 
 const CardPage = (props) => {
     const { handlerAddButton, cartItems, fillUp } = props;
@@ -40,7 +39,6 @@ const CardPage = (props) => {
     }
 
   return <div>
-    {!storeStatus ? <StoreStatus /> : null}
             {category.map((item) => {
                 return (
                     <div className='cardPageContainer' key={item._id}>

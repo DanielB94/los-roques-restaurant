@@ -6,12 +6,15 @@ import { MenuContext } from '../context/MenuContext';
 import { useNavigate } from 'react-router-dom';
 import { ErrorContext } from '../context/ErrorContext';
 import { ApiUrlContext } from '../context/ApiUrlContext';
+import StoreStatus from './StoreStatus';
+import { OpenContext } from '../context/OpenContext';
 
 const OrderPage = (props) => {
   const  { handlerAddButton, cartItems, Item } = props;
   const apiUrl  = useContext(ApiUrlContext);
   const [category, setCategory] = useContext(MenuContext);
   const {error, setError} = useContext(ErrorContext);
+  const { storeStatus, setStoreStatus } = useContext(OpenContext);
   const navigate = useNavigate();
 
 /// SET IN THE CATEGORY STATE THE CATEGORY DESIRE ///
@@ -31,6 +34,7 @@ const OrderPage = (props) => {
 
   return (
     <div className='orderContainer'>
+      {storeStatus === false ? <StoreStatus/> : null}
       <div className='orderBanner'>
         <h1>Suma recompensas <br /> por compra</h1>
         <button className="cta" onClick={registerBtn}>Registrate aqui</button>
