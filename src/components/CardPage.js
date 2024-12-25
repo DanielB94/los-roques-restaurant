@@ -19,23 +19,22 @@ const CardPage = (props) => {
 
     /// THIS FUNCTION OPENS THE MODIFICATIONS MODULE ///
     const openModal = (id) => {
-        setIsOpen(id);
-    };
-
-    const redirectButton = () => {
         const date = new Date();
         const hour = date.getHours();
         console.log(hour);
-      
         
         if (hour >= 18 && hour <= 24) {
             console.log('Abierto');
-            navigate('/login');
+            setIsOpen(id);
             setStoreStatus(true);
         } else {
             console.log('Cerrado');
             setStoreStatus(false);
           }
+    };
+
+    const redirectButton = () => {
+            navigate('/login');
     }
 
   return <div>
