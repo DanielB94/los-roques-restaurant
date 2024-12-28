@@ -49,6 +49,7 @@ const Modifications = (props) => {
                 <label className='modsLabel' htmlFor="bread">No Bread
                   <input type="checkbox" name="No pan" id="bread" className="checkboxs" onChange={handleCheckboxChange}/>
                 </label>
+                <button className="done cta" onClick={() => {handlerAddButton(product, mods); setIsOpen(false)}}>Agregar</button>
               </form>
             </div>
           )
