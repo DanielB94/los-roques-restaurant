@@ -3,6 +3,6 @@
     background-color: white;
 }
 .checkout button {
-    padding: 100px;
+    float: inline-end;
 
 }
