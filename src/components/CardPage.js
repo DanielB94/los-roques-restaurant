@@ -46,7 +46,7 @@ const CardPage = (props) => {
                             <h2>{item.name}</h2>
                             <p id='description'>{item.description}</p>
                             <p>${item.price}</p>
-                            {!userInfo ? <button className=" addTocart cta" onClick={() => redirectButton}>Agregar al carrito</button> : <button className="addToCart cta" onClick={() => openModal(item._id)}>Agregar al Carrito</button>}
+                            {!userInfo ? <button className=" addTocart cta" onClick={() => redirectButton()}>Agregar al carrito</button> : <button className="addToCart cta" onClick={() => openModal(item._id)}>Agregar al Carrito</button>}
                             {isOpen === item._id ? <Modifications isOpen={isOpen} setIsOpen={setIsOpen} handlerAddButton={handlerAddButton} product={item} cartItems={cartItems} fillUp={fillUp} /> : null}
                         </div>
                         {item.available === false ? <div className='soldOut'>Agotado</div> : null}
