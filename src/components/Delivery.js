@@ -7,6 +7,7 @@ import './styles/deliveryModal.css'
 const Delivery = (props) => {
 
     const libraries = ['places'];
+    console.log(process.env.GOOGLE_API);
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
