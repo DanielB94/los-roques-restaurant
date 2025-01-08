@@ -20,7 +20,7 @@ import { OpenContext } from './context/OpenContext';
 
 
 function App() {
-  const apiUrl = 'https://api.losroquesrestaurant.com';
+  const apiUrl = 'http://localhost:3200';
   const [cartItems, setCartItems] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
   const [orders, setOrders] = useState([])

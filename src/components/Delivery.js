@@ -10,7 +10,7 @@ const Delivery = (props) => {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: 'AIzaSyD0nch8V776CVz-Ys6tmNdEOS-1wQM9Dzw', // Replace with your actual API key
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_API, // Replace with your actual API key
         libraries: ['places']
       });
 

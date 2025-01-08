@@ -15,10 +15,11 @@ import { OptionContext } from '../context/OptionContext';
 import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './CheckoutForm';
 import { Elements } from '@stripe/react-stripe-js';
+import Delivery from './Delivery';
 
 const CartPage = (props) => {
     const navigate = useNavigate();
-    const { cartItems } = props;
+    const { cartItems, handlerAddButton } = props;
     const {setCartItems } = props;
     const apiUrl  = useContext(ApiUrlContext);
     const { userInfo, setUserInfo } = useContext(UserContext);
@@ -34,6 +35,9 @@ const CartPage = (props) => {
     const [checkoutVisible, setCheckoutVisible] = useState(false);
     const [checkbox, setCheckbox] = useState(false);
     const [message, setMessage] = useState(null);
+    const [deliveryModal, setDeliveryModal] = useState(null);
+    const [destination, setDestination] = useState('pick up');
+    const [deliveryTotal, setDeliveryTotal] = useState(0);
     
     /// KNOW IF THE USER IS AUTHENTICATED LOGIC ///
     let user;
@@ -85,6 +89,15 @@ const checkboxHandler = () => {
     console.log(checkbox);
 };
 
+const deliveryHandler = () => {
+    if (deliveryModal) {
+        setDeliveryModal(false);
+    } else {
+        setDeliveryModal(true);
+    }
+    console.log(checkbox);
+};
+
     /// THIS FUNCTIONS HANDLERS ALL THE MATH LOGIC FROM THE CARTITEMS ARRAY ///
     const getSubTotal = () => {
         let subTotal = 0;
@@ -116,7 +129,7 @@ const checkboxHandler = () => {
     const totalProducts = getSubTotal().totalProducts;
     const totalTaxes = getSubTotal().taxes;
     const totalItemsRewards = getSubTotal().itemsReward;
-    const  total = getSubTotal().total;
+    const total = getSubTotal().total;
 
     /// CREATES AND SUBMITS ORDERS TO THE API ///
     const orderHandler = async (e) => {
@@ -132,14 +145,15 @@ const checkboxHandler = () => {
                         client: user._id,
                         client_name: user.name,
                         cart: cartItems,
-                        address: "frankford",
+                        address: destination,
                         cart_rewards: totalItemsRewards,
                         user_rewards: reward,
                         rewards: checkbox,
                         subTotal: subTotal,
                         totalProducts: totalProducts,
                         totalTaxes: totalTaxes,
-                        total: total
+                        total: total,
+                        deliveryTotal: deliveryTotal,
                     }, { withCredentials: true})
                     .then((result) => {
                         console.log(result)
@@ -195,6 +209,8 @@ const checkboxHandler = () => {
                 {reward === 0 ? null : <div className='reward'>
                     <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
                     <input id='reward' type='checkbox' onClick={checkboxHandler}/>
+                    <label htmlFor="delivery">Agregar Delivery</label>
+                    <input id="delivery" type='checkbox' onClick={deliveryHandler}/>
                 </div>}
                 <p>Subtotal ({totalProducts} productos): ${subTotal}</p>
                 <p>Taxes: ${totalTaxes}</p>
@@ -206,6 +222,7 @@ const checkboxHandler = () => {
             <CheckoutForm setCheckoutVisible={setCheckoutVisible}/> :
             null
             }
+            {deliveryModal ? <Delivery destination={destination} setDestination={setDestination} deliveryTotal={deliveryTotal} setDeliveryTotal={setDeliveryTotal} deliveryModal={deliveryModal} setDeliveryModal={setDeliveryModal} handlerAddButton={handlerAddButton} /> : null}
         </div>
   )
 }

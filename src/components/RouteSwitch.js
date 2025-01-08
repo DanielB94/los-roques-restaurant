@@ -33,7 +33,7 @@ const RouteSwitch = (props) => {
           <Route path='orderPage' element={<OrderPage handlerAddButton={handlerAddButton} cartItems={cartItems} fillUp={fillUp} />} />
           <Route path= 'logIn' element={<LogIn />} />
           <Route path='register' element={<Register />} />
-          <Route path='shoppingCart' element={<CartPage cartItems={cartItems} setCartItems={setCartItems}/>} />
+          <Route path='shoppingCart' element={<CartPage cartItems={cartItems} setCartItems={setCartItems} handlerAddButton={handlerAddButton} />} />
           <Route path='rewards' element={<Rewards getColor={getColor} progress={progress} />} progress={progress} />
           <Route path='password' element={<Password />} />
           <Route path='serverError' element={<ServerError />} />
