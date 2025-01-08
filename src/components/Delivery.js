@@ -77,6 +77,7 @@ const Delivery = (props) => {
     <div className='deliveryContainer'>
         {!isLoaded ? <div>Loading...</div> :
             <div className='deliveryModal'>
+                <p>aqui{process.env.GOOGLE_API}</p>
                 <button className='x' onClick={cancelDelivery}>X</button>
                 <form onSubmit={deliveryPriceHandler}>
                     <StandaloneSearchBox
