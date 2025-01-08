@@ -5,9 +5,9 @@ import { Autocomplete, GoogleMap, useJsApiLoader, useLoadScript, StandaloneSearc
 import './styles/deliveryModal.css'
 
 const Delivery = (props) => {
-
+    const google_api = process.env.GOOGLE_API;
     const libraries = ['places'];
-    console.log(process.env.GOOGLE_API);
+    console.log(google_api);
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
