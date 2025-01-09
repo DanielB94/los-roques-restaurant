@@ -177,8 +177,12 @@ const deliveryHandler = () => {
     }
     /// REMOVE AND ITEM FROM SHOPPING CART ///
     const deleteHandler = (index) => {
-        const filteredData = cartItems.filter(item => index !== cartItems.indexOf(item))
-        setCartItems(filteredData)
+        const filteredData = cartItems.filter(item => index !== cartItems.indexOf(item));
+        if (filteredData.name === 'Delivery') {
+            setDeliveryTotal(0);
+            console.log(setDeliveryTotal);
+        }
+        setCartItems(filteredData);
     }
 
   return (
