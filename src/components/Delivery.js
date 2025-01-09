@@ -62,7 +62,7 @@ const Delivery = (props) => {
         priceInCents: deliveryModal * 100,
         image: undefined,
         category: undefined,
-        reward: undefined,
+        reward: 0,
         quantity: 1
     }
 
