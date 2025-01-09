@@ -31,7 +31,8 @@ ul{
 }
 .reward div {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
+    padding-right: -0px;
     align-items: center;
 }
 #reward {
