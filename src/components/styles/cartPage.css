@@ -22,8 +22,8 @@ ul{
 .reward {
     display: flex;
     flex-direction: column;
-    justify-content: right;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-end;
 }
 .reward input {
     width: 20px;
@@ -32,7 +32,6 @@ ul{
 .reward div {
     display: flex;
     justify-content: flex-end;
-    padding-right: -0px;
     align-items: center;
 }
 #reward {
