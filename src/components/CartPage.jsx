@@ -207,10 +207,14 @@ const deliveryHandler = () => {
         {cartItems.length >= 1 ?
             <div className="total">
                 {reward === 0 ? null : <div className='reward'>
-                    <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
-                    <input id='reward' type='checkbox' onClick={checkboxHandler}/>
-                    <label htmlFor="delivery">Agregar Delivery</label>
-                    <input id="delivery" type='checkbox' onClick={deliveryHandler}/>
+                    <div>
+                        <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
+                        <input id='reward' type='checkbox' onClick={checkboxHandler}/>
+                    </div>
+                    <div>
+                        <label htmlFor="delivery">Agregar Delivery</label>
+                        <input id="delivery" type='checkbox' onClick={deliveryHandler}/>
+                    </div>
                 </div>}
                 <p>Subtotal ({totalProducts} productos): ${subTotal}</p>
                 <p>Taxes: ${totalTaxes}</p>
