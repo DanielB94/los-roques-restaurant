@@ -180,7 +180,7 @@ const deliveryHandler = () => {
         const filteredData = cartItems.filter(item => index !== cartItems.indexOf(item));
         if (filteredData.name === 'Delivery') {
             setDeliveryTotal(0);
-            console.log(setDeliveryTotal);
+            console.log(deliveryTotal);
         }
         setCartItems(filteredData);
     }
