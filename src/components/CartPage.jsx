@@ -127,9 +127,9 @@ const deliveryHandler = () => {
 
     const subTotal = getSubTotal().subTotal;
     const totalProducts = getSubTotal().totalProducts;
-    const totalTaxes = getSubTotal().taxes.toFixed(2);
+    const totalTaxes = getSubTotal().taxes;
     const totalItemsRewards = getSubTotal().itemsReward;
-    const total = getSubTotal().total.toFixed(2);
+    const total = getSubTotal().total;
 
     /// CREATES AND SUBMITS ORDERS TO THE API ///
     const orderHandler = async (e) => {
