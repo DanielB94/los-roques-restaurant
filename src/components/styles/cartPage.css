@@ -31,8 +31,8 @@ ul{
 }
 .reward div {
     display: flex;
-    justify-content: center;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: center;
 }
 #reward {
     color: green;
