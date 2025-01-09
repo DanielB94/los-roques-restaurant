@@ -29,6 +29,8 @@ ul{
     margin-left: 3px;
 }
 #reward {
+    display: flex;
+    flex-direction: column;
     color: green;
 }
 

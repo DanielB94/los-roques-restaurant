@@ -75,7 +75,7 @@ const Delivery = (props) => {
     <div className='deliveryContainer'>
         {!isLoaded ? <div>Loading...</div> :
             <div className='deliveryModal'>
-                <button className='x' onClick={cancelDelivery}>X</button>
+                <button className='x' onClick={() => cancelDelivery}>X</button>
                 <form onSubmit={deliveryPriceHandler}>
                     <StandaloneSearchBox
                         onLoad={(ref) => autocompleteRef.current = ref}
@@ -90,7 +90,7 @@ const Delivery = (props) => {
                     <div className='deliveryInfo'>
                         <p>El precio del delivery es de: ${deliveryTotal}</p>
                         <button className='cta' onClick={() => deliveryHandler(product)}>Agregar delivery</button>
-                        <button className='cta' onClick={cancelDelivery}>Cancelar</button>
+                        <button className='cta' onClick={() => cancelDelivery}>Cancelar</button>
                     </div>
                 }
             </div>
