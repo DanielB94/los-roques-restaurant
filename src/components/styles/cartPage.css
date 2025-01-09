@@ -29,6 +29,11 @@ ul{
     width: 20px;
     margin-left: 3px;
 }
+.reward div {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
 #reward {
     color: green;
 }
