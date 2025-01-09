@@ -5,9 +5,7 @@ import { Autocomplete, GoogleMap, useJsApiLoader, useLoadScript, StandaloneSearc
 import './styles/deliveryModal.css'
 
 const Delivery = (props) => {
-    const google_api = process.env.GOOGLE_API;
     const libraries = ['places'];
-    console.log(google_api);
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -77,7 +75,6 @@ const Delivery = (props) => {
     <div className='deliveryContainer'>
         {!isLoaded ? <div>Loading...</div> :
             <div className='deliveryModal'>
-                <p>aqui{process.env.GOOGLE_API}</p>
                 <button className='x' onClick={cancelDelivery}>X</button>
                 <form onSubmit={deliveryPriceHandler}>
                     <StandaloneSearchBox
