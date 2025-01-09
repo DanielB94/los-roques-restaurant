@@ -181,7 +181,6 @@ const deliveryHandler = () => {
         console.log(filteredData);
         if (item.name === 'Delivery') {
             setDeliveryTotal(0);
-            console.log(deliveryTotal);
             setCartItems(filteredData);
         }
         setCartItems(filteredData);
@@ -215,7 +214,6 @@ const deliveryHandler = () => {
                 {reward === 0 ? null : <div className='reward'>
                     <div>
                         <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
-                        {deliveryTotal}
                         <input id='reward' type='checkbox' onClick={checkboxHandler}/>
                     </div>
                     <div>

@@ -75,7 +75,7 @@ const Delivery = (props) => {
     <div className='deliveryContainer'>
         {!isLoaded ? <div>Loading...</div> :
             <div className='deliveryModal'>
-                <button className='x' onClick={() => cancelDelivery}>X</button>
+                <button className='x' onClick={cancelDelivery}>X</button>
                 <form onSubmit={deliveryPriceHandler}>
                     <StandaloneSearchBox
                         onLoad={(ref) => autocompleteRef.current = ref}
