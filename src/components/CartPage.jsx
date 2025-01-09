@@ -176,10 +176,10 @@ const deliveryHandler = () => {
         }
     }
     /// REMOVE AND ITEM FROM SHOPPING CART ///
-    const deleteHandler = (index) => {
+    const deleteHandler = (index, item) => {
         const filteredData = cartItems.filter(item => index !== cartItems.indexOf(item));
         console.log(filteredData);
-        if (filteredData.name === 'Delivery') {
+        if (item.name === 'Delivery') {
             setDeliveryTotal(0);
             console.log(deliveryTotal);
             setCartItems(filteredData);
@@ -204,7 +204,7 @@ const deliveryHandler = () => {
                         })}</ul> : null}
                         <p>${cartItem.price}</p>
                         <div className="cartBtns">
-                            <button className='addToCart cta' onClick={() => deleteHandler(cartItems.indexOf(cartItem))}>Eliminar</button>
+                            <button className='addToCart cta' onClick={() => deleteHandler(cartItems.indexOf(cartItem), cartItem)}>Eliminar</button>
                         </div>
                     </div>
                 </div>
