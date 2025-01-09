@@ -178,9 +178,11 @@ const deliveryHandler = () => {
     /// REMOVE AND ITEM FROM SHOPPING CART ///
     const deleteHandler = (index) => {
         const filteredData = cartItems.filter(item => index !== cartItems.indexOf(item));
+        console.log(filteredData);
         if (filteredData.name === 'Delivery') {
             setDeliveryTotal(0);
             console.log(deliveryTotal);
+            setCartItems(filteredData);
         }
         setCartItems(filteredData);
     }
