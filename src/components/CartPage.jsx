@@ -222,7 +222,7 @@ const deliveryHandler = () => {
             <CheckoutForm setCheckoutVisible={setCheckoutVisible}/> :
             null
             }
-            <Delivery destination={destination} setDestination={setDestination} deliveryTotal={deliveryTotal} setDeliveryTotal={setDeliveryTotal} deliveryModal={deliveryModal} setDeliveryModal={setDeliveryModal} handlerAddButton={handlerAddButton} />
+            {deliveryModal ? <Delivery destination={destination} setDestination={setDestination} deliveryTotal={deliveryTotal} setDeliveryTotal={setDeliveryTotal} deliveryModal={deliveryModal} setDeliveryModal={setDeliveryModal} handlerAddButton={handlerAddButton} /> : null}
         </div>
   )
 }
