@@ -215,6 +215,7 @@ const deliveryHandler = () => {
                 {reward === 0 ? null : <div className='reward'>
                     <div>
                         <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
+                        {deliveryTotal}
                         <input id='reward' type='checkbox' onClick={checkboxHandler}/>
                     </div>
                     <div>
