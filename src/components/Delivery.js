@@ -4,8 +4,8 @@ import { ApiUrlContext } from '../context/ApiUrlContext';
 import { Autocomplete, GoogleMap, useJsApiLoader, useLoadScript, StandaloneSearchBox } from '@react-google-maps/api';
 import './styles/deliveryModal.css'
 
+const libraries = ['places'];
 const Delivery = (props) => {
-    const libraries = ['places'];
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
