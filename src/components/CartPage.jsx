@@ -81,10 +81,6 @@ const closeModal = () => {
     }
 };
 
-const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
-  };
-
 const checkboxHandler = () => {
     if (checkbox) {
         setCheckbox(false);
@@ -226,7 +222,7 @@ const deliveryHandler = () => {
                     </div>
                     <div>
                         <label htmlFor="delivery">Agregar Delivery</label>
-                        <input id="delivery" type='checkbox' onClick={deliveryHandler} checked={isChecked}/>
+                        <input id="delivery" type='checkbox' onClick={() => {deliveryHandler(); setIsChecked(true)}} checked={isChecked}/>
                     </div>
                 </div>}
                 <p>Subtotal ({totalProducts} productos): ${subTotal}</p>
