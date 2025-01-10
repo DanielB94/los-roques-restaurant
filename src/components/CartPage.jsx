@@ -38,6 +38,7 @@ const CartPage = (props) => {
     const [deliveryModal, setDeliveryModal] = useState(null);
     const [destination, setDestination] = useState('pick up');
     const [deliveryTotal, setDeliveryTotal] = useState(0);
+    const [isChecked, setIsChecked] = useState(true);
     
     /// KNOW IF THE USER IS AUTHENTICATED LOGIC ///
     let user;
@@ -79,6 +80,10 @@ const closeModal = () => {
         }
     }
 };
+
+const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
 
 const checkboxHandler = () => {
     if (checkbox) {
@@ -214,11 +219,11 @@ const deliveryHandler = () => {
                 {reward === 0 ? null : <div className='reward'>
                     <div>
                         <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
-                        <input id='reward' type='checkbox' checked={checkbox} onClick={checkboxHandler}/>
+                        <input id='reward' type='checkbox' onClick={checkboxHandler}/>
                     </div>
                     <div>
                         <label htmlFor="delivery">Agregar Delivery</label>
-                        <input id="delivery" type='checkbox' onClick={deliveryHandler}/>
+                        <input id="delivery" type='checkbox' onClick={deliveryHandler} checked={isChecked} onChange={handleCheckboxChange}/>
                     </div>
                 </div>}
                 <p>Subtotal ({totalProducts} productos): ${subTotal}</p>
