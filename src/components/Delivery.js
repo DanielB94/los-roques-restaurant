@@ -13,7 +13,7 @@ const Delivery = (props) => {
         libraries: libraries
       });
 
-    const { destination, setDestination, deliveryTotal, setDeliveryTotal, deliveryModal, setDeliveryModal, handlerAddButton } = props;
+    const { destination, setDestination, deliveryTotal, setDeliveryTotal, deliveryModal, setDeliveryModal, handlerAddButton, setIsChecked } = props;
 
     const apiUrl = useContext(ApiUrlContext);
 
@@ -54,6 +54,7 @@ const Delivery = (props) => {
     const cancelDelivery = () => {
         setDeliveryTotal(0);
         setDeliveryModal(false);
+        setIsChecked(false);
     }
 
     const product = {

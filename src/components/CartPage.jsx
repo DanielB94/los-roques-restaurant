@@ -84,7 +84,6 @@ const closeModal = () => {
 const checkboxHandler = () => {
     if (checkbox) {
         setCheckbox(false);
-        setIsChecked(false);
     } else {
         setCheckbox(true);
     }
@@ -94,9 +93,9 @@ const checkboxHandler = () => {
 const deliveryHandler = () => {
     if (deliveryModal) {
         setDeliveryModal(false);
-        setIsChecked(true);
     } else {
         setDeliveryModal(true);
+        setIsChecked(true);
     }
     console.log(checkbox);
 };
@@ -222,7 +221,7 @@ const deliveryHandler = () => {
                     </div>
                     <div>
                         <label htmlFor="delivery">Agregar Delivery</label>
-                        <input id="delivery" type='checkbox' onClick={() => {deliveryHandler(); setIsChecked(true)}} checked={isChecked}/>
+                        <input id="delivery" type='checkbox' onClick={deliveryHandler} checked={isChecked}/>
                     </div>
                 </div>}
                 <p>Subtotal ({totalProducts} productos): ${subTotal}</p>
@@ -235,7 +234,7 @@ const deliveryHandler = () => {
             <CheckoutForm setCheckoutVisible={setCheckoutVisible}/> :
             null
             }
-            {deliveryModal ? <Delivery destination={destination} setDestination={setDestination} deliveryTotal={deliveryTotal} setDeliveryTotal={setDeliveryTotal} deliveryModal={deliveryModal} setDeliveryModal={setDeliveryModal} handlerAddButton={handlerAddButton} /> : null}
+            {deliveryModal ? <Delivery destination={destination} setDestination={setDestination} deliveryTotal={deliveryTotal} setDeliveryTotal={setDeliveryTotal} deliveryModal={deliveryModal} setDeliveryModal={setDeliveryModal} handlerAddButton={handlerAddButton} setIsChecked={setIsChecked} /> : null}
         </div>
   )
 }
