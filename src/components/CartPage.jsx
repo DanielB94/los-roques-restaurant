@@ -38,7 +38,7 @@ const CartPage = (props) => {
     const [deliveryModal, setDeliveryModal] = useState(null);
     const [destination, setDestination] = useState('pick up');
     const [deliveryTotal, setDeliveryTotal] = useState(0);
-    const [isChecked, setIsChecked] = useState(true);
+    const [isChecked, setIsChecked] = useState(false);
     
     /// KNOW IF THE USER IS AUTHENTICATED LOGIC ///
     let user;
