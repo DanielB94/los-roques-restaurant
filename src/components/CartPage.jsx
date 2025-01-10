@@ -88,6 +88,7 @@ const handleCheckboxChange = (event) => {
 const checkboxHandler = () => {
     if (checkbox) {
         setCheckbox(false);
+        setIsChecked(false);
     } else {
         setCheckbox(true);
     }
@@ -186,6 +187,7 @@ const deliveryHandler = () => {
         console.log(filteredData);
         if (item.name === 'Delivery') {
             setDeliveryTotal(0);
+            setIsChecked(false);
             setCartItems(filteredData);
         }
         setCartItems(filteredData);
@@ -223,7 +225,7 @@ const deliveryHandler = () => {
                     </div>
                     <div>
                         <label htmlFor="delivery">Agregar Delivery</label>
-                        <input id="delivery" type='checkbox' onClick={deliveryHandler} checked={isChecked} onChange={handleCheckboxChange}/>
+                        <input id="delivery" type='checkbox' onClick={deliveryHandler} checked={isChecked}/>
                     </div>
                 </div>}
                 <p>Subtotal ({totalProducts} productos): ${subTotal}</p>
