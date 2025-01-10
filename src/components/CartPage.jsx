@@ -98,6 +98,7 @@ const checkboxHandler = () => {
 const deliveryHandler = () => {
     if (deliveryModal) {
         setDeliveryModal(false);
+        setIsChecked(true);
     } else {
         setDeliveryModal(true);
     }
