@@ -70,6 +70,11 @@ const Delivery = (props) => {
     const deliveryHandler = (product) => {
         handlerAddButton(product)
         setDeliveryModal(false);
+        if (product.price === Number) {
+            console.log('it is a number');
+        } else {
+            console.log('it is not a number');
+        }
     }
 
   return (
