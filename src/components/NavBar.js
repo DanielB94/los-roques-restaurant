@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import Hamburguer from "./Hamburguer";
 import './styles/navbar.css';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/LOGO_PNG-03.png';
 import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { UserContext } from '../context/UserContext';
