@@ -29,7 +29,7 @@ const Delivery = (props) => {
         
         let value = result.data.distance[0].map(r => r.value);
         let valueInMiles = value / 1000 / 1.6;
-        let price = valueInMiles * 1.7;
+        let price = Number(valueInMiles * 1.7);
         let formattedPrice = price.toFixed(2);
 
         if (valueInMiles <= 5 ) {
