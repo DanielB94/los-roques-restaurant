@@ -29,8 +29,8 @@ const Delivery = (props) => {
         
         let value = result.data.distance[0].map(r => r.value);
         let valueInMiles = value / 1000 / 1.6;
-        let price = Number(valueInMiles * 1.7);
-        let formattedPrice = price.toFixed(2);
+        let price = valueInMiles * 1.7;
+        let formattedPrice = parseFloat(price.toFixed(2));
 
         if (valueInMiles <= 5 ) {
             setDeliveryTotal(8.5);
@@ -70,11 +70,6 @@ const Delivery = (props) => {
     const deliveryHandler = (product) => {
         handlerAddButton(product)
         setDeliveryModal(false);
-        if (Number.isInteger(product.price)) {
-            console.log('it is a number');
-        } else {
-            console.log('it is not a number');
-        }
     }
 
   return (
