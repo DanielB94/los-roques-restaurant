@@ -92,7 +92,7 @@ const Delivery = (props) => {
                     <div className='deliveryInfo'>
                         <p>El precio del delivery es de: ${deliveryTotal}</p>
                         <button className='cta' onClick={() => deliveryHandler(product)}>Agregar delivery</button>
-                        <button className='cta' onClick={() => cancelDelivery}>Cancelar</button>
+                        <button className='cta' onClick={cancelDelivery}>Cancelar</button>
                     </div>
                 }
             </div>
