@@ -38,6 +38,6 @@
 }
 @media (max-width: 767px) {
     .dropUp {
-        transform: translateY(-56%);
+        transform: translateY(-58%);
     }
 }
