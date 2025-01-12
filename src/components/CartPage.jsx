@@ -114,7 +114,6 @@ const deliveryHandler = () => {
             subTotal += item.price;
             totalProducts = i + 1;
             taxes += item.price * 0.0825;
-            taxes.toFixed(2);
             if (itemsReward >= 20) {
                 itemsReward = 20;
             } else {
@@ -226,7 +225,7 @@ const deliveryHandler = () => {
                     </div>
                 </div>}
                 <p>Subtotal ({totalProducts} productos): ${subTotal}</p>
-                <p>Taxes: ${totalTaxes}</p>
+                <p>Taxes: ${totalTaxes.toFixed(2)}</p>
                 <p>Total: ${total}</p>
                 <p id='reward'>Recompensas por esta compra ${totalItemsRewards}</p>
                 <button className='cta' onClick={orderHandler}>Comprar</button>
