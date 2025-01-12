@@ -24,6 +24,10 @@
     margin: 5px;
 }
 
+.x {
+    font-family: 1.5rem;
+}
+
 @media (max-width: 1150px) {
     .deliveryContainer {    
         min-height: 90.5vh;
