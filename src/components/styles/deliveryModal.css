@@ -5,7 +5,7 @@
     position: absolute;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.479);
-    height: 79vh;
+    min-height: 79vh;
     width: 100vw;
 }
 .deliveryModal {
