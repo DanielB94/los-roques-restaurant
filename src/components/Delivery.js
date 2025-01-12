@@ -3,6 +3,7 @@ import React, { useContext, useRef, useState } from 'react';
 import { ApiUrlContext } from '../context/ApiUrlContext';
 import { Autocomplete, GoogleMap, useJsApiLoader, useLoadScript, StandaloneSearchBox } from '@react-google-maps/api';
 import './styles/deliveryModal.css'
+import { X } from 'lucide-react';
 
 const libraries = ['places'];
 const Delivery = (props) => {
@@ -76,7 +77,7 @@ const Delivery = (props) => {
     <div className='deliveryContainer'>
         {!isLoaded ? <div>Loading...</div> :
             <div className='deliveryModal'>
-                <button className='x xBtn' onClick={cancelDelivery}>X</button>
+                <button className='x xBtn' onClick={cancelDelivery}><X size={16}/></button>
                 <form onSubmit={deliveryPriceHandler}>
                     <StandaloneSearchBox
                         onLoad={(ref) => autocompleteRef.current = ref}
