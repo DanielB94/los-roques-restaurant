@@ -226,7 +226,7 @@ const deliveryHandler = () => {
                 </div>}
                 <p>Subtotal ({totalProducts} productos): ${subTotal}</p>
                 <p>Taxes: ${totalTaxes.toFixed(2)}</p>
-                <p>Total: ${total}</p>
+                <p>Total: ${total.toFixed(2)}</p>
                 <p id='reward'>Recompensas por esta compra ${totalItemsRewards}</p>
                 <button className='cta' onClick={orderHandler}>Comprar</button>
             </div> : <p>Tu carrito esta vacio</p>}
