@@ -201,7 +201,7 @@ const deliveryHandler = () => {
                     <img src={cartItem.image} alt={cartItem.name} />
                     <div className="textContainer">
                         <h2>{cartItem.name}</h2>
-                        {cartItem.mod ? <ul>{cartItem.mods.map((mod) => {
+                        {cartItem.mods ? <ul>{cartItem.mods.map((mod) => {
                             return <li key={cartItem.mods.indexOf(mod)}>{mod}</li>
                         })}</ul> : null}
                         <p>${cartItem.price}</p>
