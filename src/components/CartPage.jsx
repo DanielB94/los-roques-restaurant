@@ -114,6 +114,7 @@ const deliveryHandler = () => {
             subTotal += item.price;
             totalProducts = i + 1;
             taxes += item.price * 0.0825;
+            taxes.toFixed(2);
             if (itemsReward >= 20) {
                 itemsReward = 20;
             } else {
