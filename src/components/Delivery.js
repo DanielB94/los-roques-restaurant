@@ -61,7 +61,7 @@ const Delivery = (props) => {
     const product = {
         name: 'Delivery',
         price: deliveryTotal,
-        priceInCents: deliveryModal * 100,
+        priceInCents: deliveryTotal * 100,
         image: undefined,
         category: undefined,
         reward: 0,
