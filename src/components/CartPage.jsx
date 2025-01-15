@@ -35,7 +35,7 @@ const CartPage = (props) => {
     const [checkoutVisible, setCheckoutVisible] = useState(false);
     const [checkbox, setCheckbox] = useState(false);
     const [message, setMessage] = useState(null);
-    const [deliveryModal, setDeliveryModal] = useState(true);
+    const [deliveryModal, setDeliveryModal] = useState(null);
     const [destination, setDestination] = useState('pick up');
     const [deliveryTotal, setDeliveryTotal] = useState(0);
     const [isChecked, setIsChecked] = useState(false);
