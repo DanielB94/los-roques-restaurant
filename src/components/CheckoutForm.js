@@ -11,7 +11,7 @@ const CheckoutForm = (props) => {
   const { setCheckoutVisible, stripePromise } = props;
   const { option } = useContext(OptionContext);
   console.log(stripePromise);
-  const stripe = loadStripe(stripePromise.data.publishableKEY);
+  const stripe = stripePromise;
   
   return (
     <div className='checkout'>
