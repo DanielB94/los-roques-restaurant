@@ -6,7 +6,7 @@ import './styles/checkout.css';
 import { OptionContext } from '../context/OptionContext';
 import { X } from 'lucide-react';
 
-const stripePromise = loadStripe("pk_test_51Pg8t9RuLD47u0xXTF5u2l5IMcbweVzFJRkBnirmuArI2E4mNBRkilsK27bqtEaKsFTIPdYdjviwpXTJQPgWuYdH00gJM7wQs6");
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE);
 
 const CheckoutForm = (props) => {
     const { setCheckoutVisible } = props;
@@ -16,7 +16,7 @@ const CheckoutForm = (props) => {
     <div className='checkout'>
       <button className='x dropBtns' onClick={() => setCheckoutVisible(false)}><X size={16}/></button>
         <EmbeddedCheckoutProvider
-        stripe={process.env.REACT_APP_STRIPE}
+        stripe={stripePromise}
         options={option}
       >
         <EmbeddedCheckout />
