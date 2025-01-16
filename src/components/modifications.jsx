@@ -11,8 +11,13 @@ const Modifications = (props) => {
 
   /// SELECT AN ITEM FROM THE MODS LISTS ///
     const handleCheckboxChange = event => {
-      setMods([...mods, event.target.name]);
-      console.log(mods);
+      if (event.target.checked) {
+        setMods([...mods, event.target.name]);
+        console.log(mods);
+      } else {
+        const filteredData = mods.filter(item => event.target.name === item.name);
+        setMods(filteredData);
+      }
     }
 
         return (
