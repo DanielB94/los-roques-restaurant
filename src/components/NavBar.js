@@ -69,6 +69,7 @@ const NavBar = (props) => {
     const orderBtn = () => {
         axios.get(`${apiUrl}/api/menu-items`)
         .then((result) => {
+            console.log(result);
             setCategory(result.data);
         })
         .then(navigate('/orderPage'))
