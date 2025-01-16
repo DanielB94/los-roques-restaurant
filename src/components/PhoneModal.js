@@ -44,6 +44,7 @@ const PhoneModal = (props) => {
       <p>Necesitamos tu numero de telefono<br />para avisarte el status de tu orden</p>
       <form onSubmit={phoneHandler} className='phoneForm'>
         <input type='tel' name="phone" onChange={(e) => setPhone(e.target.value)} placeholder='(000) 000-0000' required/>
+        <p>Estoy de acuerdo que me contacten para saber el status de mi orden</p>
         <button className='cta'>Agregar</button>
       </form>
         {message ? <p>{message}</p> : null}

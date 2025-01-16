@@ -20,7 +20,7 @@ const CardPage = (props) => {
     /// THIS FUNCTION OPENS THE MODIFICATIONS MODULE ///
     const openModal = (id) => {
         const date = new Date();
-        const hour = 18;
+        const hour = 20;
         console.log(hour);
         
         if (hour >= 18 && hour <= 24) {
