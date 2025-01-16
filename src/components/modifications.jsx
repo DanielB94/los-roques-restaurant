@@ -14,9 +14,7 @@ const Modifications = (props) => {
       if (event.target.checked) {
         setMods([...mods, event.target.name]);
         console.log(mods);
-      } else {
-        const filteredData = mods.filter(item => event.target.name === item.name);
-        setMods(filteredData);
+      }
       }
     }
 
