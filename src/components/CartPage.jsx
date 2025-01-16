@@ -231,7 +231,7 @@ const deliveryHandler = () => {
                 <button className='cta' onClick={orderHandler}>Comprar</button>
             </div> : <p>Tu carrito esta vacio</p>}
             {option !== null && checkoutVisible === true ?
-            <CheckoutForm setCheckoutVisible={setCheckoutVisible}/> :
+            <CheckoutForm stripePromise={stripePromise} setCheckoutVisible={setCheckoutVisible}/> :
             null
             }
             {deliveryModal ? <Delivery destination={destination} setDestination={setDestination} deliveryTotal={deliveryTotal} setDeliveryTotal={setDeliveryTotal} deliveryModal={deliveryModal} setDeliveryModal={setDeliveryModal} handlerAddButton={handlerAddButton} setIsChecked={setIsChecked} /> : null}
