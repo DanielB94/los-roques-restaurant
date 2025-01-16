@@ -10,6 +10,7 @@ import { X } from 'lucide-react';
 const CheckoutForm = (props) => {
   const { setCheckoutVisible, stripePromise } = props;
   const { option } = useContext(OptionContext);
+  console.log(stripePromise);
   const stripe = loadStripe(stripePromise.data.publishableKEY);
   
   return (
