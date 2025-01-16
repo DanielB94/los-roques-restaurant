@@ -30,11 +30,11 @@ function App() {
   const [admin, setAdmin] = useState(null);
   const [storeStatus, setStoreStatus] = useState(null);
 
-  function Item(name, price, mods, image, category, reward, priceInCents, quantity) {
+  function Item(name, price, mods, picture, category, reward, priceInCents, quantity) {
     this.name = name
     this.price = price
     this.mods = mods
-    this.image = image
+    this.picture = picture
     this.category = category
     this.reward = reward
     this.priceInCents = priceInCents
@@ -43,7 +43,7 @@ function App() {
 
   const handlerAddButton = (product, mods) => {
 
-    const newItem = new Item(product.name, product.price, mods, product.image, product.category, product.reward, product.priceInCents);
+    const newItem = new Item(product.name, product.price, mods, product.picture, product.category, product.reward, product.priceInCents);
     setCartItems([...cartItems, newItem]);
   
   }
