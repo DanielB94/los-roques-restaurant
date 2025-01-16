@@ -15,7 +15,6 @@ const Modifications = (props) => {
         setMods([...mods, event.target.name]);
         console.log(mods);
       }
-      }
     }
 
         return (
