@@ -42,7 +42,7 @@ const CardPage = (props) => {
             {category.map((item) => {
                 return (
                     <div className='cardPageContainer' key={item._id}>
-                        <img src={i} alt="hamburguer" />
+                        <img src={'../assets/burguerCa.jpg'} alt="hamburguer" />
                         <div className='textContainer'>
                             <h2>{item.name}</h2>
                             <p id='description'>{item.description}</p>
