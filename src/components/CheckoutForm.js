@@ -16,7 +16,7 @@ const CheckoutForm = (props) => {
     <div className='checkout'>
       <button className='x dropBtns' onClick={() => setCheckoutVisible(false)}><X size={16}/></button>
         <EmbeddedCheckoutProvider
-        stripe={stripePromise}
+        stripe={process.env.REACT_APP_STRIPE}
         options={option}
       >
         <EmbeddedCheckout />

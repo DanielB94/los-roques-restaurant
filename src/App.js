@@ -18,7 +18,6 @@ import { AdminContext } from './context/AdminContext';
 import AdminNavbar from './components/admin/AdminNavbar';
 import { OpenContext } from './context/OpenContext';
 
-
 function App() {
   const apiUrl = 'https://api.losroquesrestaurant.com';
   const [cartItems, setCartItems] = useState([]);
