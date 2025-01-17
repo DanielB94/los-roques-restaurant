@@ -38,14 +38,20 @@ const CardPage = (props) => {
             navigate('/login');
     }
 
-    const images = [burgerCA];
+    const images = [{name: 'hamburguesa carne asada', picture: burgerCA}];
 
   return <div>
             {category.map((item) => {
+                    const filter = images.filter(img => {
+                        if (img.name === item.name) {
+                            return img.picture;
+                        }
+                    }
+                    )
                 console.log(burgerCA);
                 return (
                     <div className='cardPageContainer' key={item._id}>
-                        <img src='/home/daniel/online-restaurant/restaurant-front-end/src/assets/burguerCA.jpg' alt={item.name} />
+                        <img src={filter} alt={item.name} />
                         <div className='textContainer'>
                             <h2>{item.name}</h2>
                             <p id='description'>{item.description}</p>
