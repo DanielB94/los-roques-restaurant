@@ -59,21 +59,21 @@ height: 80vh;
 }
 .hamburguers {
     background: url('/src/assets/burguerCA.jpg');
-    background-size: contain;
+    background-size: cover;
 }
 .patacon {
     background: url('/src/assets/pataconP.jpg');
-    background-size: contain;
+    background-size: cover;
     flex-grow: 0.3;
 }
 .arepas {
     background: url('/src/assets/areponCA.jpg');
-    background-size: contain;
+    background-size: cover;
     flex-grow: 0.8;
 }
 .bread {
     background: url('/src/assets/sub.jpg');
-    background-size: contain;
+    background-size: cover;
     flex-grow: 0.5;
 }
 .cardInfo {
@@ -88,6 +88,9 @@ height: 80vh;
 }
 
 @media (max-width: 1150px) {
+    .banner {
+        background-size: cover;
+    }
     .menu {
         align-items: center;
     }
