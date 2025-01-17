@@ -6,7 +6,7 @@
 }
 .banner {
 background: url('/src/assets/pataconCA.jpg');
-background-size: contain;
+background-size: cover;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -58,21 +58,21 @@ height: 80vh;
     flex-grow: 1;
 }
 .hamburguers {
-    background: url('/src/assets/hamburguesa.png');
+    background: url('/src/assets/burguerCA.jpg');
     background-size: cover;
 }
 .patacon {
-    background: url('/src/assets/pataacon.png');
+    background: url('/src/assets/pataconP.jpg');
     background-size: cover;
     flex-grow: 0.3;
 }
 .arepas {
-    background: url('/src/assets/arepas.png');
+    background: url('/src/assets/areponCA.jpg');
     background-size: cover;
     flex-grow: 0.8;
 }
 .bread {
-    background: url('/src/assets/hotdogs.jpg');
+    background: url('/src/assets/sub.jpg');
     background-size: cover;
     flex-grow: 0.5;
 }
