@@ -33,7 +33,7 @@
         flex-direction: row-reverse;
         height: auto;
         width: 396px;
-        margin: 0px 16px 16px 16px;
+        margin: 0px 0px 16px 16px;
         align-items: end;
     }
     .cardPageContainer .textContainer {
@@ -45,7 +45,6 @@
     }
     .cardPageContainer img {
         width: 100px;
-        height: auto;
         align-self: center;
     }
     .cardPageContainer h2 {
