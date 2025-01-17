@@ -34,7 +34,7 @@ const HomePage = () => {
   return (
     <div className='homeContainer'>
       <div className="banner">
-        <h1>Get a 20% <br /> Discount</h1>
+        <h1>Registrate <br /> Obten recompesas por compra</h1>
         <button className="cta" onClick={registerBtn}>Registrate Aqui</button>
       </div>
       <div className="menu">
