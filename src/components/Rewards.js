@@ -71,8 +71,7 @@ const Rewards = (props) => {
         <div className="rewardsInfo"> 
           <ul>
             <li>Suma Hasta $20 en recompensas.</li>
-            <li>Por cada burguer, patacon, arepa o pepito que compres suma $1.</li>
-            <li>Por cada entrada o perro caliente que compres suma $0.50.</li>
+            <li>Por cada burger, patacon, arepon o subway que compres suma $1.</li>
           </ul>
         </div>
       </div>
