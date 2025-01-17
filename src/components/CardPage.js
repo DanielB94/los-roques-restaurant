@@ -40,7 +40,6 @@ const CardPage = (props) => {
 
   return <div>
             {category.map((item) => {
-                console.log(item.picture)
                 return (
                     <div className='cardPageContainer' key={item._id}>
                         <img src={item.picture} alt={item.name} />
