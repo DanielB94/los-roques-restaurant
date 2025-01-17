@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext';
 import { OpenContext } from '../context/OpenContext';
+import burgerCA from '../assets/burguerCA.jpg';
 
 const CardPage = (props) => {
     const { handlerAddButton, cartItems, fillUp } = props;
@@ -37,10 +38,11 @@ const CardPage = (props) => {
             navigate('/login');
     }
 
+    const images = [burgerCA];
+
   return <div>
             {category.map((item) => {
-                let picture = item.picture
-                console.log(picture)
+                console.log(burgerCA);
                 return (
                     <div className='cardPageContainer' key={item._id}>
                         <img src='/home/daniel/online-restaurant/restaurant-front-end/src/assets/burguerCA.jpg' alt={item.name} />
