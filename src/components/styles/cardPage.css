@@ -7,7 +7,7 @@
 }
 .cardPageContainer img {
     width: 150px;
-    object-fit: cover;
+    object-fit: none;
 }
 .cardPageContainer h2 {
     padding-bottom: 8px;
