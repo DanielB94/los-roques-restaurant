@@ -198,7 +198,7 @@ const deliveryHandler = () => {
         {cartItems.map((cartItem) => {
             return(
                 <div className='cardPageContainer' key={cartItem.id}>
-                    <img src={cartItem.image} alt={cartItem.name} />
+                    <img src={cartItem.picture} alt={cartItem.name} />
                     <div className="textContainer">
                         <h2>{cartItem.name}</h2>
                         {cartItem.mods ? <ul>{cartItem.mods.map((mod) => {
