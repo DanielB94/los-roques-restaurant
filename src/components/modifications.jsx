@@ -27,6 +27,12 @@ const Modifications = (props) => {
                     <button className='x dropBtns' onClick={() => setIsOpen(false)}><X size={16}/></button>
                 </div>
               <form action="#">
+              <label className='modsLabel' htmlFor="verde">patacon Verde
+                  <input type="checkbox" name="verde" id="verde" className="checkboxs" onChange={handleCheckboxChange}/>
+                </label>
+                <label className='modsLabel' htmlFor="amarillo">patacon amarillo
+                  <input type="checkbox" name="amarillo" id="amarillo" className="checkboxs" onChange={handleCheckboxChange}/>
+                </label>
                 <label className='modsLabel' htmlFor="verduras">No Verduras
                   <input type="checkbox" name="No verduras" id="verduras" className="checkboxs" onChange={handleCheckboxChange}/>
                 </label>
@@ -50,6 +56,9 @@ const Modifications = (props) => {
                 </label>
                 <label className='modsLabel' htmlFor="tartara">No Tartara
                   <input type="checkbox" name="No tartara" id="tartara" className="checkboxs" onChange={handleCheckboxChange}/>
+                </label>
+                <label className='modsLabel' htmlFor="maiz">No maiz
+                  <input type="checkbox" name="No pan" id="maiz" className="checkboxs" onChange={handleCheckboxChange}/>
                 </label>
                 <label className='modsLabel' htmlFor="bread">No Bread
                   <input type="checkbox" name="No pan" id="bread" className="checkboxs" onChange={handleCheckboxChange}/>
