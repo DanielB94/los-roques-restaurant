@@ -43,7 +43,7 @@ const CardPage = (props) => {
                 console.log(picture)
                 return (
                     <div className='cardPageContainer' key={item._id}>
-                        <img src='src/assets/burguerCA.jpg' alt={item.name} />
+                        <img src='/home/daniel/online-restaurant/restaurant-front-end/src/assets/burguerCA.jpg' alt={item.name} />
                         <div className='textContainer'>
                             <h2>{item.name}</h2>
                             <p id='description'>{item.description}</p>
