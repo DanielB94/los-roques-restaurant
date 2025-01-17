@@ -6,8 +6,7 @@
     position: relative;
 }
 .cardPageContainer img {
-    width: 150px;
-    object-fit: contain;
+    width: 200px;
 }
 .cardPageContainer h2 {
     padding-bottom: 8px;
