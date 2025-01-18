@@ -67,7 +67,7 @@ const Rewards = (props) => {
           <h1>{userInfo.user.data.info.name}</h1>
           <h2>Tienes ${reward} en Recompensas</h2>
         </div> : <h2>Registrate para obtener puntos de recompensa</h2>}
-        <Link to={userInfo ? '/orderPage' : '/logIn'}>{userInfo ?<button className='logBtn' onClick={orderBtn}>CANGEAR AHORA</button> : <button className='logBtn'>REGISTRATE</button>}</Link>
+        <Link to={userInfo ? '/orderPage' : '/logIn'}>{userInfo ?<button className='logBtn' onClick={orderBtn}>CANJEAR AHORA</button> : <button className='logBtn'>REGISTRATE</button>}</Link>
         <div className="rewardsInfo"> 
           <ul>
             <li>Suma Hasta $20 en recompensas.</li>
