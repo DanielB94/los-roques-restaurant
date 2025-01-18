@@ -21,7 +21,7 @@ const CardPage = (props) => {
     /// THIS FUNCTION OPENS THE MODIFICATIONS MODULE ///
     const openModal = (id) => {
         const date = new Date();
-        const hour = date.hour;
+        const hour = date.getHours();
         console.log(hour);
         
         if (hour >= 17 && hour <= 24) {
