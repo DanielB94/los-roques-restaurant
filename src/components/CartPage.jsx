@@ -219,11 +219,11 @@ const deliveryHandler = () => {
                         <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
                         <input id='reward' type='checkbox' onClick={checkboxHandler}/>
                     </div>
+                </div>}
                     <div>
                         <label htmlFor="delivery">Agregar Delivery</label>
                         <input id="delivery" type='checkbox' onClick={deliveryHandler} checked={isChecked}/>
                     </div>
-                </div>}
                 <p>Subtotal ({totalProducts} productos): ${subTotal.toFixed(2)}</p>
                 <p>Taxes: ${totalTaxes.toFixed(2)}</p>
                 <p>Total: ${total.toFixed(2)}</p>
