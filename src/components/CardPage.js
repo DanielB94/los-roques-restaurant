@@ -24,7 +24,7 @@ const CardPage = (props) => {
         const hour = date.hour;
         console.log(hour);
         
-        if (hour >= 18 && hour <= 24) {
+        if (hour >= 17 && hour <= 24) {
             console.log('Abierto');
             setStoreStatus(true);
             setIsOpen(id);
