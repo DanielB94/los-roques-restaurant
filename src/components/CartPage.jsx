@@ -225,7 +225,7 @@ const deliveryHandler = () => {
                         <input id="delivery" type='checkbox' onClick={deliveryHandler} checked={isChecked}/>
                     </div>
                 <p>Subtotal ({totalProducts} productos): ${subTotal.toFixed(2)}</p>
-                <p>Taxes: ${totalTaxes.toFixed(2)}</p>
+{/*                <p>Taxes: ${totalTaxes.toFixed(2)}</p> */}
                 <p>Total: ${total.toFixed(2)}</p>
                 <p id='reward'>Recompensas por esta compra ${totalItemsRewards}</p>
                 <button className='cta' onClick={orderHandler}>Comprar</button>
