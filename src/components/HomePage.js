@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Info from './Info';
 import './styles/homePage.css';
 import axios from 'axios';
@@ -6,12 +6,30 @@ import { MenuContext } from '../context/MenuContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { ErrorContext } from '../context/ErrorContext';
 import { ApiUrlContext } from '../context/ApiUrlContext';
+import { getCookieConsentValue } from 'react-cookie-consent';
 
 const HomePage = () => {
   const apiUrl  = useContext(ApiUrlContext);
   const [category, setCategory] = useContext(MenuContext);
   const { error, setError } = useContext(ErrorContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    /// SETS THE DESERIALIZED USER IN THE USERINFO STATE FROM GOOGLE OR FACEBOOK STRAT ///
+      const google = ( async () => {
+        try {
+          const user = await axios.get(`${apiUrl}/api/login/success`, {withCredentials: true});
+  
+          if (user.data.info) {
+            navigate('/rewards');
+          } else{
+            return null;
+          }
+        }
+        catch(err) {
+          navigate('/serverError');
+        };
+       })(); })
 
 /// SET IN THE CATEGORY STATE THE CATEGORY DESIRE ///
   const categoryHandler = (name) => {

@@ -38,7 +38,7 @@ const CardPage = (props) => {
             navigate('/login');
     }
 
-  return <div>
+  return <div className='div'>
             {category.map((item) => {
                 return (
                     <div className='cardPageContainer' key={item._id}>
