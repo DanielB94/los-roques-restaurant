@@ -90,7 +90,7 @@ const Admin = (props) => {
   return (
     <div className='adminContainer'>
       <div className='status'>
-        {storeStatus ? <button onClick={storeHandler}>close</button> : <button onClick={storeHandler}>open</button>}
+        {storeStatus ? <button onClick={() => storeHandler}>close</button> : <button onClick={() => storeHandler}>open</button>}
         {storeStatus ? <p>opened</p> : <p>closed</p>}
         <div className={status}></div>
         <button onClick={() => backupHandler()}>Ordenes</button>
