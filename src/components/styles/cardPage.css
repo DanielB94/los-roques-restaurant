@@ -1,5 +1,12 @@
+.div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .cardPageContainer {
     display: flex;
+    
+    min-width: 1000px;
     margin: 0px 16% 0px 16%;
     padding: 10px;
     cursor: pointer;
@@ -11,12 +18,21 @@
 }
 .cardPageContainer h2 {
     padding-bottom: 8px;
+    width: 200px;
 }
 .cardPageContainer .textContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
     padding-left: 10px;
 }
-.cardPageContainer .textContainer #description {
-    padding-bottom: 8px;
+.cardPageContainer #description {
+    width: 500px;
+}
+.cardPageContainer .textContainer p {
+    text-align: center;
+    margin: 10px;
 }
 .soldOut {
     z-index: 2;
