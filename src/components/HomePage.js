@@ -15,7 +15,7 @@ const HomePage = () => {
 
 /// SET IN THE CATEGORY STATE THE CATEGORY DESIRE ///
   const categoryHandler = (name) => {
-    axios.post(`${apiUrl}/api/menu-item-category`, {category: name})
+    axios.post(`${apiUrl}/api/menu-item-category`, {})
     .then((result) => { 
       setCategory(result.data);
     })
