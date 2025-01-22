@@ -25,7 +25,7 @@ const HomePage = () => {
           }
         }
         catch(err) {
-          console.log(err);
+          return null;
         };
        })(); })
 
