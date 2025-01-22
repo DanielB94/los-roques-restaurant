@@ -24,14 +24,14 @@ const CardPage = (props) => {
         const hour = date.getHours();
         console.log(hour);
         
-        if (hour >= 10 && hour <= 24) {
-            console.log('Abierto');
-            setStoreStatus(true);
-            setIsOpen(id);
-        } else {
-            console.log('Cerrado');
-            setStoreStatus(false);
-          }
+        if (storeStatus) {
+            if (hour >= 10 && hour <= 24) {
+                console.log('Abierto');
+                setIsOpen(id);
+            } else {
+                console.log('Cerrado');
+              }
+        }
     };
 
     const redirectButton = () => {
