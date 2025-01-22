@@ -8,6 +8,7 @@ import { ErrorContext } from '../../context/ErrorContext';
 import { socket } from '../../socket';
 import { ApiUrlContext } from '../../context/ApiUrlContext';
 import { AdminContext } from '../../context/AdminContext';
+import { OpenContext } from '../../context/OpenContext';
 
 
 const Admin = (props) => {
@@ -19,6 +20,7 @@ const Admin = (props) => {
   const [orderFromIo, setOrderFromIo] = useState([]);
   const [value, setValue] = useState(null);
   const [status, setStatus] = useState('.red');
+  const {storeStatus, setStoreStatus} = useContext(OpenContext);
 
   const navigate = useNavigate();
   
@@ -76,9 +78,20 @@ const Admin = (props) => {
     .catch(err => console.log(err));
   }
 
+  /// FUNCTION STORE HANDLER ///
+  const storeHandler = () => {
+    if (storeStatus) {
+        setStoreStatus(false);
+      } else {
+        setStoreStatus(true);
+    }
+  };
+
   return (
     <div className='adminContainer'>
       <div className='status'>
+        <button onClick={storeHandler}>Store</button>
+        {storeStatus ? <p>opened</p> : <p>closed</p>}
         <div className={status}></div>
         <button onClick={() => backupHandler()}>Ordenes</button>
       </div>
