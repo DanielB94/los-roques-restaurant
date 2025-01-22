@@ -21,7 +21,6 @@ const Admin = (props) => {
   const [value, setValue] = useState(null);
   const [status, setStatus] = useState('.red');
   const {storeStatus, setStoreStatus} = useContext(OpenContext);
-  const {adminOpenContext, setAdminOpenContext} = useContext(adminOpenContext);
 
   const navigate = useNavigate();
   
@@ -79,20 +78,9 @@ const Admin = (props) => {
     .catch(err => console.log(err));
   }
 
-  /// FUNCTION STORE HANDLER ///
-  const storeHandler = (boolean) => {
-    if () {
-        setStoreStatus(boolean);
-      } else {
-        setStoreStatus(boolean);
-    }
-  };
-
   return (
     <div className='adminContainer'>
       <div className='status'>
-        {adminOpenContext ? <button onClick={() => storeHandler(false)}>close</button> : <button onClick={() => storeHandler(true)}>open</button>}
-        {storeStatus ? <p>opened</p> : <p>closed</p>}
         <div className={status}></div>
         <button onClick={() => backupHandler()}>Ordenes</button>
       </div>
