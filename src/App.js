@@ -28,7 +28,7 @@ function App() {
   const [reward, setReward] = useState(null);
   const [option, setOption] = useState(null);
   const [admin, setAdmin] = useState(null);
-  const [storeStatus, setStoreStatus] = useState(null);
+  const [storeStatus, setStoreStatus] = useState(true);
 
   function Item(name, price, mods, picture, category, reward, priceInCents, quantity) {
     this.name = name
