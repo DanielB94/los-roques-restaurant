@@ -22,12 +22,10 @@ const HomePage = () => {
   
           if (user.data.info) {
             navigate('/rewards');
-          } else{
-            return null;
           }
         }
         catch(err) {
-          navigate('/serverError');
+          console.log(err);
         };
        })(); })
 
