@@ -30,6 +30,7 @@ const CardPage = (props) => {
                 setIsOpen(id);
             } else {
                 console.log('Cerrado');
+                setStoreStatus(false);
               }
         }
     };
