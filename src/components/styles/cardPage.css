@@ -57,6 +57,7 @@
         align-items: flex-start;
         width: 297px;
         height: auto;
+
     }
     .cardPageContainer img {
         width: 100px;
@@ -67,9 +68,13 @@
         padding-bottom: 1px;
     }
     .cardPageContainer #description {
-        margin: 0px;
+        margin-bottom: -2px;
         width: auto;
         text-align: start;
+    }
+    .cardPageContainer .textContainer p {
+        text-align: center;
+        margin: 5px 5px 5px 0px;
     }
     .btns {
         margin: 0;
