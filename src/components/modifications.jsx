@@ -13,7 +13,6 @@ const Modifications = (props) => {
     const handleCheckboxChange = event => {
       if (event.target.checked) {
         setMods([...mods, event.target.name]);
-        console.log(mods);
       } else {
         const filteredData = mods.filter(item => event.target.name === item.name);
         setMods(filteredData);
@@ -27,12 +26,14 @@ const Modifications = (props) => {
                     <button className='x dropBtns' onClick={() => setIsOpen(false)}><X size={16}/></button>
                 </div>
               <form action="#">
-              <label className='modsLabel' htmlFor="verde">patacon Verde
-                  <input type="checkbox" name="verde" id="verde" className="checkboxs" onChange={handleCheckboxChange}/>
-                </label>
-                <label className='modsLabel' htmlFor="amarillo">patacon amarillo
-                  <input type="checkbox" name="amarillo" id="amarillo" className="checkboxs" onChange={handleCheckboxChange}/>
-                </label>
+                {product.category === 'patacon' ? <div>
+                  <label className='modsLabel' htmlFor="verde">patacon Verde
+                    <input type="checkbox" name="verde" id="verde" className="checkboxs" onChange={handleCheckboxChange}/>
+                  </label>
+                  <label className='modsLabel' htmlFor="amarillo">patacon amarillo
+                    <input type="checkbox" name="amarillo" id="amarillo" className="checkboxs" onChange={handleCheckboxChange}/>
+                  </label>
+                </div> : null}
                 <label className='modsLabel' htmlFor="verduras">No Verduras
                   <input type="checkbox" name="No verduras" id="verduras" className="checkboxs" onChange={handleCheckboxChange}/>
                 </label>

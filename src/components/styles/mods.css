@@ -6,6 +6,7 @@
     background-color: white;
     padding: 10px;
     box-shadow: 0.5px 0.5px black;
+    transform: translateX(150%) translateY(-55%);
 }
 .formHeader {
     display: flex;
@@ -38,6 +39,7 @@
 }
 @media (max-width: 767px) {
     .dropUp {
-        transform: translateY(-59%);
+        width: 200px;
+        transform: translateY(-8%);
     }
 }
