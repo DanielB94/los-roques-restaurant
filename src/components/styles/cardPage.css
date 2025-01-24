@@ -5,8 +5,8 @@
 }
 .cardPageContainer {
     display: flex;
-    min-width: 1000px;
-    margin: 0px 16% 0px 16%;
+    min-width: 60%;
+    
     padding: 10px;
     cursor: pointer;
     position: relative;
