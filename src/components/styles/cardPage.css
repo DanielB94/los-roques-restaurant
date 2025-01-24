@@ -5,7 +5,6 @@
 }
 .cardPageContainer {
     display: flex;
-    
     min-width: 1000px;
     margin: 0px 16% 0px 16%;
     padding: 10px;
@@ -48,16 +47,19 @@
         display: flex;
         flex-direction: row-reverse;
         height: auto;
-        width: 396px;
-        margin: 0px 0px 16px 16px;
+        min-width: 396px;
+        
         align-items: end;
     }
     .cardPageContainer .textContainer {
         display: flex;
         flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
         width: 297px;
         height: auto;
         padding-right: 15px;
+        padding-left: 0px;
     }
     .cardPageContainer img {
         width: 100px;
@@ -69,6 +71,8 @@
     }
     .cardPageContainer #description {
         margin-bottom: -2px;
+        width: auto;
+        text-align: start;
     }
     .btns {
         margin: 0;
