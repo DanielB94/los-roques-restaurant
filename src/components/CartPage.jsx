@@ -68,7 +68,6 @@ const CartPage = (props) => {
             }
         }
     }, [userInfo]);
-    console.log(phone)
 
 /// PHONE NUMBER MODAL HANDLER ///
 const closeModal = () => {
@@ -97,7 +96,6 @@ const deliveryHandler = () => {
         setDeliveryModal(true);
         setIsChecked(true);
     }
-    console.log(checkbox);
 };
 
     /// THIS FUNCTIONS HANDLERS ALL THE MATH LOGIC FROM THE CARTITEMS ARRAY ///
@@ -215,12 +213,10 @@ const deliveryHandler = () => {
         {cartItems.length >= 1 ?
             <div className="total">
                 {reward === 0 ? null : <div className='reward'>
-                    <div>
                         <label htmlFor="reward">Usar tus ${reward} acumualdos </label>
                         <input id='reward' type='checkbox' onClick={checkboxHandler}/>
-                    </div>
                 </div>}
-                    <div>
+                    <div className='reward'>
                         <label htmlFor="delivery">Agregar Delivery</label>
                         <input id="delivery" type='checkbox' onClick={deliveryHandler} checked={isChecked}/>
                     </div>

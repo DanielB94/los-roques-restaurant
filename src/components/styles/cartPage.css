@@ -29,8 +29,10 @@ ul{
     width: 20px;
     margin-left: 3px;
 }
-.reward div {
+
+.reward {
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
 }
