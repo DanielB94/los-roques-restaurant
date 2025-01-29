@@ -13,7 +13,7 @@ const StoreStatus = () => {
   return (
     <div className='statusContainer'>
         <div className='storeTextContainer'>
-            <h1>El horario para ordenar es 6:00pm a 12:00am</h1> <p>No podras agregar platillos al carrito de compras fuera de ese horario.</p>
+            <h1>El horario para ordenar es de viernes a domingo desde las 6:00pm a 12:00am</h1> <p>No podras agregar platillos al carrito de compras fuera de ese horario.</p>
             <button className='cta' onClick={() => statusHandler()}>Aceptar</button>
       </div>
     </div>
