@@ -19,13 +19,13 @@ const CardPage = (props) => {
     const navigate = useNavigate();
 
     /// THIS FUNCTION OPENS THE MODIFICATIONS MODULE ///
-    const openModal = (id) => {
+    const openModal = async (id) => {
         const date = new Date();
         const hour = date.getHours();
         const day = date.getDay();
         console.log(hour, day);
         
-            if ((hour >= 18 && hour <= 24) && (day >= 5 && day <= 7)) {
+            if (day >= 5 && day <= 7) {
                 console.log('Abierto');
                 setStoreStatus(true);
                 setIsOpen(id);
