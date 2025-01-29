@@ -22,9 +22,10 @@ const CardPage = (props) => {
     const openModal = (id) => {
         const date = new Date();
         const hour = date.getHours();
-        console.log(hour);
+        const day = date.getDay();
+        console.log(hour, day);
         
-            if (hour >= 18 && hour <= 24) {
+            if ((hour >= 18 && hour <= 24) && (day > 4 && day < 8)) {
                 console.log('Abierto');
                 setStoreStatus(true);
                 setIsOpen(id);
