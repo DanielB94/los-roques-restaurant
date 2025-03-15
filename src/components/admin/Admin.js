@@ -94,10 +94,11 @@ const Admin = (props) => {
                 return <div className='item'>
                   <h3>{i.name}</h3>
                  <div className='modContainer'>
+                 {i.mods ?
                   <ul>
                     {i.mods.map(mod =><li>{mod}</li>
                   )}
-                  </ul>
+                  </ul> : null}
                  </div>
                 </div>
               })}
